@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <div className="header">
       <div className="logoName">
-        <a>
+        <a href="/">
           {/* <img src={plant} alt="Plantkart"/> */}
           <h1>PlantKart</h1>
         </a>

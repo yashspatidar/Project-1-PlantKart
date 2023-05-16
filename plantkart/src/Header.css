@@ -1,5 +1,5 @@
 .header {
-  background-color: rgb(240, 212, 187);
+  background-color: rgb(255, 246, 244);
   display: flex;
   align-items: center;
   height: 70px;
@@ -7,6 +7,10 @@
 }
 .logoName > a > h1{
   letter-spacing: 1px;
+}
+.logoName>a{
+  text-decoration: none;
+  color: black;
 }
 
 .second_header {

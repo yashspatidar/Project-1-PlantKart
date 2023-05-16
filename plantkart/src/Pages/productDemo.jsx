@@ -1,18 +1,13 @@
 import { v4 as uuid } from "uuid";
 
-/**
- * Product Database can be added here.
- * You can add products of your wish with different attributes
- * */
-
-export const products = [
+export const productDemo = [
   {
     _id: uuid(),
     name: "Areca Palm",
     price: 2499,
     rating: 5.0,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/vB3zSQxZ/Areca-palm.jpg"
+    image_link: "https://i.postimg.cc/vB3zSQxZ/Areca-palm.jpg",
   },
   {
     _id: uuid(),
@@ -20,7 +15,7 @@ export const products = [
     price: 179,
     rating: 4.8,
     categoryName: "indoor",
-    image_link:"https://i.postimg.cc/mD9s45RM/Broken-Heart.jpg"
+    image_link: "https://i.postimg.cc/mD9s45RM/Broken-Heart.jpg",
   },
   {
     _id: uuid(),
@@ -28,7 +23,7 @@ export const products = [
     price: 190,
     rating: 4.8,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/L4qT9FrG/Fitonia-green.jpg"
+    image_link: "https://i.postimg.cc/L4qT9FrG/Fitonia-green.jpg",
   },
   {
     _id: uuid(),
@@ -36,7 +31,7 @@ export const products = [
     price: 1169,
     rating: 4.5,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/MpGXwqLQ/Monstera-Deliciosa.jpg"
+    image_link: "https://i.postimg.cc/MpGXwqLQ/Monstera-Deliciosa.jpg",
   },
   {
     _id: uuid(),
@@ -44,7 +39,7 @@ export const products = [
     price: 200,
     rating: 4.7,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/D0y3GyLQ/Peperomia-Green.jpg"
+    image_link: "https://i.postimg.cc/D0y3GyLQ/Peperomia-Green.jpg",
   },
   {
     _id: uuid(),
@@ -52,7 +47,7 @@ export const products = [
     price: 250,
     rating: 4.7,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/X74kwBZ6/Golden-snake-Plant.jpg"
+    image_link: "https://i.postimg.cc/X74kwBZ6/Golden-snake-Plant.jpg",
   },
   {
     _id: uuid(),
@@ -60,7 +55,7 @@ export const products = [
     price: 160,
     rating: 4.7,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/hjCcpdSZ/Jade-Plant.jpg"
+    image_link: "https://i.postimg.cc/hjCcpdSZ/Jade-Plant.jpg",
   },
   {
     _id: uuid(),
@@ -68,7 +63,7 @@ export const products = [
     price: 500,
     rating: 5.0,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/rm5Yp6H1/snake-plant.jpg"
+    image_link: "https://i.postimg.cc/rm5Yp6H1/snake-plant.jpg",
   },
   {
     _id: uuid(),
@@ -76,7 +71,7 @@ export const products = [
     price: 299,
     rating: 4.3,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/rmbFqrv0/Rubber-Plant.jpg"
+    image_link: "https://i.postimg.cc/rmbFqrv0/Rubber-Plant.jpg",
   },
   {
     _id: uuid(),
@@ -84,7 +79,7 @@ export const products = [
     price: 349,
     rating: 4.8,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/gJ4thyYj/Red-plant.jpg"
+    image_link: "https://i.postimg.cc/gJ4thyYj/Red-plant.jpg",
   },
   {
     _id: uuid(),
@@ -92,7 +87,7 @@ export const products = [
     price: 269,
     rating: 5.0,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/KjRfgdqp/Bamboo-palm-plant.jpg"
+    image_link: "https://i.postimg.cc/KjRfgdqp/Bamboo-palm-plant.jpg",
   },
   {
     _id: uuid(),
@@ -100,7 +95,7 @@ export const products = [
     price: 999,
     rating: 4.9,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/xCF3tRq4/Wandering-jew.jpg"
+    image_link: "https://i.postimg.cc/xCF3tRq4/Wandering-jew.jpg",
   },
   {
     _id: uuid(),
@@ -108,7 +103,7 @@ export const products = [
     price: 599,
     rating: 4.8,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/6pWJsWMx/Peacock-Plant.jpg"
+    image_link: "https://i.postimg.cc/6pWJsWMx/Peacock-Plant.jpg",
   },
   {
     _id: uuid(),
@@ -116,7 +111,7 @@ export const products = [
     price: 199,
     rating: 4.7,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/5NZYprgz/Snake-Plant-Green.jpg"
+    image_link: "https://i.postimg.cc/5NZYprgz/Snake-Plant-Green.jpg",
   },
   {
     _id: uuid(),
@@ -124,7 +119,7 @@ export const products = [
     price: 1499,
     rating: 4.0,
     categoryName: "indoor",
-    image_link: "https://i.postimg.cc/ZKVZ5vB5/Ficus.jpg"
+    image_link: "https://i.postimg.cc/ZKVZ5vB5/Ficus.jpg",
   },
   {
     _id: uuid(),
@@ -132,7 +127,7 @@ export const products = [
     price: 949,
     rating: 3.5,
     categoryName: "fruit",
-    image_link: "https://i.postimg.cc/HxTWLz16/Kesar-mango-plant.jpg"
+    image_link: "https://i.postimg.cc/HxTWLz16/Kesar-mango-plant.jpg",
   },
   {
     _id: uuid(),
@@ -140,7 +135,7 @@ export const products = [
     price: 999,
     rating: 4.2,
     categoryName: "fruit",
-    image_link: "https://i.postimg.cc/qRmrvdL7/Chiku-plant.jpg"
+    image_link: "https://i.postimg.cc/qRmrvdL7/Chiku-plant.jpg",
   },
   {
     _id: uuid(),
@@ -148,7 +143,7 @@ export const products = [
     price: 599,
     rating: 4.8,
     categoryName: "flower",
-    image_link: "https://i.postimg.cc/qRmrvdL7/Chiku-plant.jpg"
+    image_link: "https://i.postimg.cc/qRmrvdL7/Chiku-plant.jpg",
   },
   {
     _id: uuid(),
@@ -156,7 +151,7 @@ export const products = [
     price: 799,
     rating: 4.7,
     categoryName: "flower",
-    image_link: "https://i.postimg.cc/HnK4XJLJ/Poinsettia.jpg"
+    image_link: "https://i.postimg.cc/HnK4XJLJ/Poinsettia.jpg",
   },
   {
     _id: uuid(),
@@ -164,7 +159,7 @@ export const products = [
     price: 699,
     rating: 4.8,
     categoryName: "flower",
-    image_link: "https://i.postimg.cc/Y0JYjJXY/Rugmini-plant-red.jpg"
+    image_link: "https://i.postimg.cc/Y0JYjJXY/Rugmini-plant-red.jpg",
   },
   {
     _id: uuid(),
@@ -172,7 +167,7 @@ export const products = [
     price: 1399,
     rating: 5.0,
     categoryName: "bundle",
-    image_link: "https://i.postimg.cc/ht7zfyx1/The-Dekstop-bundle.png"
+    image_link: "https://i.postimg.cc/ht7zfyx1/The-Dekstop-bundle.png",
   },
   {
     _id: uuid(),
@@ -180,7 +175,7 @@ export const products = [
     price: 1299,
     rating: 4.9,
     categoryName: "bundle",
-    image_link: "https://i.postimg.cc/y8Bx811s/The-indoor-plant-bundle.png"
+    image_link: "https://i.postimg.cc/y8Bx811s/The-indoor-plant-bundle.png",
   },
   {
     _id: uuid(),
@@ -188,7 +183,7 @@ export const products = [
     price: 1299,
     rating: 4.8,
     categoryName: "bundle",
-    image_link: "https://i.postimg.cc/kXTzBw9G/The-low-maintainance-bundle.png"
+    image_link: "https://i.postimg.cc/kXTzBw9G/The-low-maintainance-bundle.png",
   },
   {
     _id: uuid(),
@@ -196,7 +191,7 @@ export const products = [
     price: 1299,
     rating: 4.7,
     categoryName: "bundle",
-    image_link: "https://i.postimg.cc/zBM3zTBc/The-sleep-better-bundle.png"
+    image_link: "https://i.postimg.cc/zBM3zTBc/The-sleep-better-bundle.png",
   },
   {
     _id: uuid(),
@@ -204,15 +199,17 @@ export const products = [
     price: 1499,
     rating: 5.0,
     categoryName: "bundle",
-    image_link: "https://i.postimg.cc/xC73bsgG/The-sun-loving-succulent-bundle.png"
+    image_link:
+      "https://i.postimg.cc/xC73bsgG/The-sun-loving-succulent-bundle.png",
   },
+
   {
     _id: uuid(),
     name: "The Pack Of 4",
     price: 1199,
     rating: 5.0,
     categoryName: "pots",
-    image_link: "https://i.postimg.cc/4NHFwc9N/Pack-of-4.png"
+    image_link: "https://i.postimg.cc/4NHFwc9N/Pack-of-4.png",
   },
   {
     _id: uuid(),
@@ -220,7 +217,7 @@ export const products = [
     price: 399,
     rating: 4.7,
     categoryName: "pots",
-    image_link: "https://i.postimg.cc/XJ1Jxmyh/Football-ceramic.png"
+    image_link: "https://i.postimg.cc/XJ1Jxmyh/Football-ceramic.png",
   },
   {
     _id: uuid(),
@@ -228,7 +225,7 @@ export const products = [
     price: 899,
     rating: 5.0,
     categoryName: "pots",
-    image_link: "https://i.postimg.cc/ncXXCFQD/Wooden-Planter.jpg"
+    image_link: "https://i.postimg.cc/ncXXCFQD/Wooden-Planter.jpg",
   },
   {
     _id: uuid(),
@@ -236,7 +233,7 @@ export const products = [
     price: 1299,
     rating: 5.0,
     categoryName: "pots",
-    image_link: "https://i.postimg.cc/brcqrPXQ/Self-watering.png"
+    image_link: "https://i.postimg.cc/brcqrPXQ/Self-watering.png",
   },
   {
     _id: uuid(),
@@ -244,7 +241,7 @@ export const products = [
     price: 699,
     rating: 5.0,
     categoryName: "pots",
-    image_link: "https://i.postimg.cc/kGnhfYK0/Plastic-pots.png"
+    image_link: "https://i.postimg.cc/kGnhfYK0/Plastic-pots.png",
   },
   {
     _id: uuid(),
@@ -252,7 +249,7 @@ export const products = [
     price: 1499,
     rating: 4.0,
     categoryName: "tool kit",
-    image_link: "https://i.postimg.cc/g0yfKRfL/Marigoldkit.jpg"
+    image_link: "https://i.postimg.cc/g0yfKRfL/Marigoldkit.jpg",
   },
   {
     _id: uuid(),
@@ -260,7 +257,7 @@ export const products = [
     price: 1499,
     rating: 5.0,
     categoryName: "tool kit",
-    image_link: "https://i.postimg.cc/mrdKqRgT/spinachkit.jpg"
+    image_link: "https://i.postimg.cc/mrdKqRgT/spinachkit.jpg",
   },
   {
     _id: uuid(),
@@ -268,7 +265,7 @@ export const products = [
     price: 799,
     rating: 4.0,
     categoryName: "tool kit",
-    image_link: "https://i.postimg.cc/zXtWVcvV/Thyme1.jpg"
+    image_link: "https://i.postimg.cc/zXtWVcvV/Thyme1.jpg",
   },
   {
     _id: uuid(),
@@ -276,6 +273,6 @@ export const products = [
     price: 1399,
     rating: 5.0,
     categoryName: "tool kit",
-    image_link: "https://i.postimg.cc/nhdJ8qd8/tomatokit.jpg"
+    image_link: "https://i.postimg.cc/nhdJ8qd8/tomatokit.jpg",
   },
 ];

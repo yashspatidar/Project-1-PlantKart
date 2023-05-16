@@ -1,0 +1,139 @@
+* {
+    font-family: 'Outfit', sans-serif;
+    
+}
+
+.product-listing {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3.125rem;
+}
+
+.productCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 75rem;
+}
+.card p {
+  margin-left: 10px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+
+  padding: 1 rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card p:nth-of-type(1) {
+  margin-top: 1rem;
+  font-size: 22pxrem;
+  font-weight: 600;
+  color: #1A1B18;
+  letter-spacing: 1px;
+}
+
+.card p:nth-of-type(2) {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.card p:nth-of-type(3) {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #149253;
+  letter-spacing: 1px;
+}
+.card p:nth-of-type(4) {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.regularPrice{
+    font-size:0.8rem;
+    color: grey;
+}
+
+.addtocart {
+  display: flex;
+
+  justify-content: center;
+  padding: 13px 30px 10px;
+  width: 80%;
+  background-color: #149253;
+  border-radius: 4px;
+
+  color: #fefefe;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-weight: 1000;
+  font-size: 0.8rem;
+  margin: 10px auto;
+}
+
+.addtocart:hover {
+  background-color: white;
+  color: #149253;
+  box-shadow: 0 0 5px 0 #149253;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 17rem;
+  }
+  .card p:nth-of-type(1) {
+    font-size: 1.5rem;
+    align-items: center;
+    
+  }
+  .card p:nth-of-type(2) {
+    font-size: 1.2rem;
+  }
+  .card p:nth-of-type(3) {
+    font-size: 1.2rem;
+  }
+  .card p:nth-of-type(4) {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .card {
+    width: 18rem;
+  }
+
+  .card p:nth-of-type(1) {
+    font-size: 1.2rem;
+    align-items: center;
+  }
+  .card p:nth-of-type(2) {
+    font-size: 1rem;
+  }
+  .card p:nth-of-type(3) {
+    font-size: 1rem;
+  }
+  .card p:nth-of-type(4) {
+    font-size: 1rem;
+  }
+}

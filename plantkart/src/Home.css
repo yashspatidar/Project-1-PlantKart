@@ -1,0 +1,71 @@
+
+.BannerImage{
+    width:100%;
+    content: url("https://i.postimg.cc/nrDN0fh1/New-Launch-1-Mobile-Banner-dbaf06ad-02cb-4ecb-a26d-4b0f7972c0a6.jpg")
+}
+
+
+.home{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+    .container{
+        margin-top: 20px;
+    }
+
+    .homecard{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        margin-bottom: 30px;
+        
+    }
+    .homecard p{
+        margin-top:10px;
+        font-size: 18px;
+        font-weight:500;
+        letter-spacing: 1px;
+    }
+
+    .cardImage{
+        height:150px;
+        width: 150px;
+        border-radius: 60%;
+        border: 1px solid black;
+    }
+
+
+@media (min-width: 768px){
+    .BannerImage {
+        content: url('https://i.postimg.cc/zXjDxHpy/Desktop-Banner-1-1.jpg');
+      }
+      .container{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 5rem;
+        flex-wrap: wrap;
+      }
+
+
+}
+
+
+@media (min-width: 1024px){
+    .BannerImage {
+        content: url('https://i.postimg.cc/zXjDxHpy/Desktop-Banner-1-1.jpg');
+      }
+      .container{
+        display: flex;
+        flex-direction: row;
+        gap: 8rem;
+        margin-top: 5rem;
+        flex-wrap: wrap;
+      }
+      
+      
+}
