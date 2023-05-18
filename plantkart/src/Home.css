@@ -1,71 +1,93 @@
+.BannerImage {
+  width: 100%;
+  content: url("https://i.postimg.cc/nrDN0fh1/New-Launch-1-Mobile-Banner-dbaf06ad-02cb-4ecb-a26d-4b0f7972c0a6.jpg");
+}
 
-.BannerImage{
-    width:100%;
-    content: url("https://i.postimg.cc/nrDN0fh1/New-Launch-1-Mobile-Banner-dbaf06ad-02cb-4ecb-a26d-4b0f7972c0a6.jpg")
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 
-.home{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+.container {
+  margin-top: 20px;
 }
 
-    .container{
-        margin-top: 20px;
-    }
-
-    .homecard{
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        margin-bottom: 30px;
-        
-    }
-    .homecard p{
-        margin-top:10px;
-        font-size: 18px;
-        font-weight:500;
-        letter-spacing: 1px;
-    }
-
-    .cardImage{
-        height:150px;
-        width: 150px;
-        border-radius: 60%;
-        border: 1px solid black;
-    }
-
-
-@media (min-width: 768px){
-    .BannerImage {
-        content: url('https://i.postimg.cc/zXjDxHpy/Desktop-Banner-1-1.jpg');
-      }
-      .container{
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        margin-top: 5rem;
-        flex-wrap: wrap;
-      }
-
-
+.homecard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.homecard p {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
+.cardImage {
+  height: 150px;
+  width: 150px;
+  border-radius: 60%;
+  border: 1px solid black;
+}
 
-@media (min-width: 1024px){
-    .BannerImage {
-        content: url('https://i.postimg.cc/zXjDxHpy/Desktop-Banner-1-1.jpg');
-      }
-      .container{
-        display: flex;
-        flex-direction: row;
-        gap: 8rem;
-        margin-top: 5rem;
-        flex-wrap: wrap;
-      }
-      
-      
+.cardImage:hover {
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.shopButton {
+  display: flex;
+  justify-content: center;
+  padding: 13px 30px 10px;
+  background-color: #149253;
+  border-radius: 4px;
+  color: #fefefe;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  font-weight: 1000;
+  font-size: 0.8rem;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.shopButton:hover {
+  background-color: white;
+  color: #149253;
+  box-shadow: 0 0 5px 0 #149253;
+}
+
+@media (min-width: 768px) {
+  .BannerImage {
+    content: url("https://i.postimg.cc/zXjDxHpy/Desktop-Banner-1-1.jpg");
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    
+  }
+}
+
+@media (min-width: 1024px) {
+  .BannerImage {
+    content: url("https://i.postimg.cc/zXjDxHpy/Desktop-Banner-1-1.jpg");
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+    /* margin-top: 5rem; */
+    flex-wrap: wrap;
+  }
+  .shopButton{
+    margin-bottom: 0;
+  }
 }

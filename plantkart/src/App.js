@@ -9,19 +9,21 @@ import Mockman from "mockman-js";
 import { Home } from "./Pages/Home";
 import { Footer } from "./Components/Footer";
 import { AboveFooter } from "./Components/AboveFooter";
+import { Cart } from "./Pages/Cart";
 
 function App() {
   return (
     <div>
       <Header />
-      
+      {/* <Login /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductListing />} />
         <Route path="/mockman" element={<Mockman />} />
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
       {/* <AboveFooter/> */}
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

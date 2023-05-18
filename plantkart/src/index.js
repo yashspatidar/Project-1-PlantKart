@@ -4,16 +4,24 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-
+import {
+  ProductContextProvider,
+  ProductContext,
+} from "./Context/ProductContextProvider";
+import { CartContextProvider } from "./Context/CartContext";
+export { ProductContext };
 // Call make Server
 makeServer();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <BrowserRouter>
-  <App />
-  </BrowserRouter>
-    
+    <BrowserRouter>
+      <ProductContextProvider>
+        <CartContextProvider>
+          <App />
+        </CartContextProvider>
+      </ProductContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

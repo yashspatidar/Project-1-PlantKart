@@ -3,7 +3,7 @@ import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import '../Header.css';
-import plant from "../images/plant.png"
+
 
 
 
@@ -18,13 +18,13 @@ export const Header = () => {
       </div>
       <div className="second_header">
         <input placeholder="search for plants" />
-        <SearchRoundedIcon/>
+        <SearchRoundedIcon />
       </div>
       <div className="third_header">
         <a className="third_header_link">
           <FavoriteRoundedIcon />
         </a>
-        <a className="third_header_link">
+        <a href ="/cart" className="third_header_link">
           <ShoppingCartRoundedIcon />
         </a>
         <a className="third_header_link" >

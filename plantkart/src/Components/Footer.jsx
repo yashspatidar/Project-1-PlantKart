@@ -20,3 +20,5 @@ export const Footer = () => {
     </div>
   );
 };
+
+// TODO: to create folder for each component and add css in that folder

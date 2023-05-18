@@ -1,13 +1,15 @@
 * {
-    font-family: 'Outfit', sans-serif;
-    
+  font-family: "Outfit", sans-serif;
 }
 
 .product-listing {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 3.125rem;
+  /* margin-bottom: 3.125rem; */
+  margin-left: 0rem;
+  border-left: 1px solid black;
+
 }
 
 .productCard {
@@ -16,6 +18,7 @@
   justify-content: center;
   gap: 1rem;
   max-width: 75rem;
+  margin-top: 3.125rem;
 }
 .card p {
   margin-left: 10px;
@@ -47,7 +50,7 @@
   margin-top: 1rem;
   font-size: 22pxrem;
   font-weight: 600;
-  color: #1A1B18;
+  color: #1a1b18;
   letter-spacing: 1px;
 }
 
@@ -71,10 +74,21 @@
   letter-spacing: 1px;
 }
 
-.regularPrice{
-    font-size:0.8rem;
-    color: grey;
+.regularPrice {
+  font-size: 0.8rem;
+  color: grey;
 }
+
+.regularPrice::before{
+  content: "\20B9";
+}
+
+.mainPrice::before{
+  content: "\20B9";
+}
+/* .RupeePrice::before{
+  
+} */
 
 .addtocart {
   display: flex;
@@ -99,14 +113,58 @@
   box-shadow: 0 0 5px 0 #149253;
 }
 
+/* for filters */
+
+.filterDiv {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  height: 100vh;
+  grid-gap: 2rem;
+  gap: 2rem;
+  position: fixed;
+  left: 0;
+  padding: 1rem 2rem;
+  /* border-right: 1px solid #4c4e51; */
+  position: absolute;
+}
+
+.filter-first {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-third {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-fourth {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-fifth {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+
+
 @media (min-width: 768px) {
+
+  
+
   .card {
     width: 17rem;
   }
   .card p:nth-of-type(1) {
     font-size: 1.5rem;
     align-items: center;
-    
   }
   .card p:nth-of-type(2) {
     font-size: 1.2rem;
@@ -119,6 +177,11 @@
   }
 }
 @media (min-width: 1024px) {
+
+  .product-listing{
+    margin-left:20rem;
+  }
+
   .card {
     width: 18rem;
   }

@@ -1,8 +1,12 @@
 .footerContainer {
   display: flex;
   flex-direction: row;
-  background-color: #e9eef4;
+  background-color: #d0ded8;
+  position:sticky;
 }
+/* 
+background-color: #e9eef4; */
+
 
 footer {
   height: auto;
@@ -23,7 +27,6 @@ footer {
   flex-direction: column;
   margin-top: 10px;
   gap: 5px;
- 
 }
 
 @media (min-width: 1024px) {
@@ -33,7 +36,6 @@ footer {
     justify-content: space-evenly;
   }
 
-  
   .second {
     margin-top: 0;
   }

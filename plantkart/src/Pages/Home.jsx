@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import "../Home.css";
 import { homecard } from "../backend/db/homecards";
+import { ProductContext } from "../Context/ProductContextProvider";
+import { Footer } from "../Components/Footer";
 
 export const Home = () => {
+  const {shopPlantButtonHandler} = useContext(ProductContext);
   return (
     <div className="home">
       <img
@@ -9,7 +13,8 @@ export const Home = () => {
         alt="banner"
         className="BannerImage"
       />
-
+      <button onClick={shopPlantButtonHandler} className="shopButton">Shop Plants</button>
+   
       <div className="container">
         {homecard.map((item)=>(
             <div className="homecard">
@@ -18,6 +23,7 @@ export const Home = () => {
             </div>
         ))}
       </div>
+      <Footer/>
     </div>
 
   );
