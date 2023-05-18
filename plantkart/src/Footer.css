@@ -29,6 +29,19 @@ footer {
   gap: 5px;
 }
 
+@media (min-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .second {
+    margin-top: 0;
+  }
+}
+
+
 @media (min-width: 1024px) {
   footer {
     display: flex;

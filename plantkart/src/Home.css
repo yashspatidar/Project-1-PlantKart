@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  
 }
 
 
@@ -62,6 +62,12 @@
   box-shadow: 0 0 5px 0 #149253;
 }
 
+.homeFooter{
+  width: 100%;
+  margin-bottom:0;
+  margin-top: 5rem;
+}
+
 @media (min-width: 768px) {
   .BannerImage {
     content: url("https://i.postimg.cc/zXjDxHpy/Desktop-Banner-1-1.jpg");
@@ -73,6 +79,12 @@
     margin-top: 5rem;
     flex-wrap: wrap;
     
+  }
+
+  .homeFooter{
+    width: 100%;
+    margin-bottom:0;
+    margin-top: 5rem;
   }
 }
 
@@ -89,5 +101,11 @@
   }
   .shopButton{
     margin-bottom: 0;
+  }
+
+  .homeFooter{
+    width: 100%;
+    margin-bottom:0;
+    margin-top: 5rem;
   }
 }

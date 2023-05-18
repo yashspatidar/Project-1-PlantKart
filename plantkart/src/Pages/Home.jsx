@@ -23,7 +23,12 @@ export const Home = () => {
             </div>
         ))}
       </div>
+      <div className="homeFooter">
+
       <Footer/>
+
+      </div>
+      
     </div>
 
   );
