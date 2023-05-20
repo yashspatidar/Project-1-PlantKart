@@ -1,4 +1,4 @@
-import "../Product.css"
+import "../ProductListing.css"
 
 export const Filters = () => {
   return (

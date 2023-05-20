@@ -21,13 +21,13 @@ export const Header = () => {
         <SearchRoundedIcon />
       </div>
       <div className="third_header">
-        <a className="third_header_link">
+        <a href="/wishlist" className="third_header_link">
           <FavoriteRoundedIcon />
         </a>
         <a href ="/cart" className="third_header_link">
           <ShoppingCartRoundedIcon />
         </a>
-        <a className="third_header_link" >
+        <a href="/login" className="third_header_link" >
           <PersonRoundedIcon />
         </a>
       </div>

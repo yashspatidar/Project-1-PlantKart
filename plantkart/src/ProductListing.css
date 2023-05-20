@@ -126,7 +126,9 @@
   left: 0;
   padding: 1rem 2rem;
   /* border-right: 1px solid #4c4e51; */
-  position: absolute;
+  /* position: absolute; */
+  overflow-y: auto;
+  z-index: 5;
 }
 
 .filter-first {

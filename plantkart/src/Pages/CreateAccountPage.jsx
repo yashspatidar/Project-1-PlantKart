@@ -1,22 +1,23 @@
 import { Link } from "react-router-dom";
 import "../Login.css"
 
-export const Login = () => {
+export const CreateAccountPage = () => {
   return (
     <div className="login">
       <div className="first_login">
         <h1>PlantKart</h1>
-        <p>Welcome back! Sign in with</p>
+        <p>Welcome Please Provide Your Details</p>
       </div>
       <div className="second_login">
+      <input placeholder="Full Name" className="login_input"/>
         <input placeholder="Email" className="login_input"/>
         <input placeholder="Password" className="login_input"/>
       </div>
       <div >
-        <button className="login_button">SIGN IN</button>
+        <button className="login_button">SIGN UP</button>
       </div>
-      <div className="third_login">
-        <p>New here? <Link className="third_login_link">Create an Account</Link></p>
+      <div >
+        <button className="login_button">LOGIN IN</button>
       </div>
     </div>
   );

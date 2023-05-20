@@ -1,6 +1,6 @@
 // import { productDemo } from "./productDemo";
-import "../Product.css";
-import CurrencyRupeeRoundedIcon from "@mui/icons-material/CurrencyRupeeRounded";
+import "../ProductListing.css";
+//import CurrencyRupeeRoundedIcon from "@mui/icons-material/CurrencyRupeeRounded";
 import { useContext } from "react";
 import { ProductContext } from "../Context/ProductContextProvider";
 import { Filters } from "../Components/Filters";
