@@ -13,6 +13,7 @@ export const Cart = () => {
               <div className="cart-card-first">
                 <p>{item.name}</p>
                 <p className="cartPrice">{item.price}</p>
+                <p>Quantity : </p>
                 <button className="cartButtons">Remove from Cart</button>
                 <button className="cartButtons">Add to Wishlist</button>
               </div>
