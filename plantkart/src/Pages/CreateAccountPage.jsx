@@ -20,14 +20,26 @@ export const CreateAccountPage = () => {
   }
   // console.log(userData);
 
+  // const signUpHandler = async(event) => {
+  //   event.preventDefault();
+  //   console.log(userData);
+  //   try{
+  //     const response = await axios.post('/api/auth/signup',userData);
+  //     console.log(response)
+  //   }
+  //    catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const signUpHandler = async(event) => {
     event.preventDefault();
-    console.log(userData);
-    try{
-      const response = await axios.post('/api/auth/signup',userData);
+    try {
+      const response = await axios.post(`/api/auth/signup`, userData);
       console.log(response)
-    }
-     catch (error) {
+      // saving the encodedToken in the localStorage
+      localStorage.setItem("token", response.data.encodedToken);
+    } catch (error) {
       console.log(error);
     }
   };
