@@ -8,7 +8,7 @@ import { HomeContext } from "../Context/HomeContextProvider";
 export const Home = () => {
   const {shopPlantButtonHandler,} = useContext(ProductContext);
   const {homeCard} = useContext(HomeContext)
-  console.log(homeCard)
+  // console.log(homeCard)
   return (
     <div className="home">
       <img

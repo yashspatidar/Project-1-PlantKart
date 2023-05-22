@@ -20,7 +20,7 @@ export const Cart = () => {
             </div>
           ))}
         </div>
-        <div>
+        <div className="cartPriceCart">
           <p>PRICE DETAILS</p>
           <div>
             <p>Price({productDemo?.length} item)</p>

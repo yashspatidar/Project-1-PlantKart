@@ -1,15 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Login.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import { AuthContext } from "../Context/AuthContextProvider";
 
 export const CreateAccountPage = () => {
+  const { signUpUser, token } = useContext(AuthContext);
   const [userData, setUserData] = useState({
     firstName: "",
-    lastName:"",
+    lastName: "",
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   function userDataHandler(event) {
     const { name, value } = event.target;
@@ -32,17 +36,17 @@ export const CreateAccountPage = () => {
   //   }
   // };
 
-  const signUpHandler = async(event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post(`/api/auth/signup`, userData);
-      console.log(response)
-      // saving the encodedToken in the localStorage
-      localStorage.setItem("token", response.data.encodedToken);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const signUpHandler = async(event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const response = await axios.post(`/api/auth/signup`, userData);
+  //     console.log(response)
+  //     // saving the encodedToken in the localStorage
+  //     localStorage.setItem("token", response.data.encodedToken);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // const signUpHandler = async (event) => {
   //   event.preventDefault();
@@ -72,6 +76,21 @@ export const CreateAccountPage = () => {
   //     console.log(data);
   //   } catch (error) {}
   // };
+
+  const signUpHandler = () => {
+    const { firstName, lastName, email, password } = userData;
+    if (email && password && firstName && lastName !== "") {
+      (async () => {
+        signUpUser(email, password, firstName, lastName);
+      })();
+    }
+  };
+
+  if (token) {
+    setTimeout(() => {
+      navigate("/products");
+    });
+  }
 
   return (
     <form className="login" onSubmit={signUpHandler}>
@@ -118,7 +137,7 @@ export const CreateAccountPage = () => {
         </button>
       </div>
       <div>
-        <button className="login_button">LOGIN IN</button>
+        <button className="login_button" onClick={()=>navigate("/login")}>LOGIN IN</button>
       </div>
       {/* </div> */}
     </form>

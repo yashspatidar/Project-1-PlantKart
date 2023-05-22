@@ -10,6 +10,7 @@ import {
 } from "./Context/ProductContextProvider";
 import { CartContextProvider } from "./Context/CartContext";
 import { HomeContextProvider } from "./Context/HomeContextProvider";
+import { AuthContextProvider } from "./Context/AuthContextProvider";
 export { ProductContext };
 // Call make Server
 makeServer();
@@ -18,6 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <AuthContextProvider>
       <ProductContextProvider>
         <CartContextProvider>
           <HomeContextProvider>
@@ -25,6 +27,7 @@ root.render(
           </HomeContextProvider>
         </CartContextProvider>
       </ProductContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

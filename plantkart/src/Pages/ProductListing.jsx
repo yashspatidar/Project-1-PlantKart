@@ -4,10 +4,11 @@ import "../ProductListing.css";
 import { useContext } from "react";
 import { ProductContext } from "../Context/ProductContextProvider";
 import { Filters } from "../Components/Filters";
+import { AuthContext } from "../Context/AuthContextProvider";
 
 export const ProductListing = () => {
   const { productData } = useContext(ProductContext);
-
+  
   return (
     <div className="product-listing">
       <Filters />
@@ -27,7 +28,7 @@ export const ProductListing = () => {
               <span className="mainPrice">{plant.price}</span>
             </p>
             <p>{plant.categoryName}</p>
-            <button className="addtocart">Add to Cart</button>
+            <button className="addtocart" >Add to Cart</button>
           </div>
         ))}
       </div>
