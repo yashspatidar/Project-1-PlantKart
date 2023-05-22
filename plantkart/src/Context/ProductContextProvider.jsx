@@ -21,6 +21,9 @@ export const ProductContextProvider = ({ children }) => {
     getData();
   }, []);
 
+  
+
+
   // button handler for shop plants button on home screen to navigate it to the product listing page
   const shopPlantButtonHandler = () => {
     navigate("/products");

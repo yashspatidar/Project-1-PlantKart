@@ -9,6 +9,7 @@ import {
   ProductContext,
 } from "./Context/ProductContextProvider";
 import { CartContextProvider } from "./Context/CartContext";
+import { HomeContextProvider } from "./Context/HomeContextProvider";
 export { ProductContext };
 // Call make Server
 makeServer();
@@ -19,7 +20,9 @@ root.render(
     <BrowserRouter>
       <ProductContextProvider>
         <CartContextProvider>
-          <App />
+          <HomeContextProvider>
+            <App />
+          </HomeContextProvider>
         </CartContextProvider>
       </ProductContextProvider>
     </BrowserRouter>
