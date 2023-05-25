@@ -1,11 +1,15 @@
-import { createContext, useState } from "react"
+import { createContext, useContext, useState } from "react"
+import { AuthContext } from "./AuthContextProvider";
 
 export const CartContext = createContext();
 export const CartContextProvider = ({children})=>{
-    const [cartData,setCartData] = useState(null);
+    const {token} = useContext(AuthContext)
+
+    
+
 
     return(
-        <CartContext.Provider>
+        <CartContext.Provider value={{}}>
             {children}
         </CartContext.Provider>
     )

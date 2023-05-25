@@ -9,10 +9,11 @@ import Mockman from "mockman-js";
 import { Home } from "./Pages/Home";
 
 
-import { Wishlist } from "./Pages/Wishlist";
+
 import { CreateAccountPage } from "./Pages/CreateAccountPage";
 import { Cart } from "./Pages/Cart/Cart";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
+import { Wishlist } from "./Pages/Wishlist/Wishlist";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/wishlist" element={<Wishlist/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/createaccount" element={<CreateAccountPage />} />
       </Routes>

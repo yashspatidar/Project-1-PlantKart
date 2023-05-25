@@ -23,6 +23,7 @@ export const getCartItemsHandler = function (schema, request) {
     );
   }
   const userCart = schema.users.findBy({ _id: userId }).cart;
+  console.log(userCart,"cart controlller")
   return new Response(200, {}, { cart: userCart });
 };
 
@@ -34,6 +35,7 @@ export const getCartItemsHandler = function (schema, request) {
 
 export const addItemToCartHandler = function (schema, request) {
   const userId = requiresAuth.call(this, request);
+  
   try {
     if (!userId) {
       return new Response(
@@ -46,6 +48,7 @@ export const addItemToCartHandler = function (schema, request) {
     }
     const userCart = schema.users.findBy({ _id: userId }).cart;
     const { product } = JSON.parse(request.requestBody);
+
     userCart.push({
       ...product,
       createdAt: formatDate(),

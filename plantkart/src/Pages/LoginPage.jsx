@@ -11,10 +11,7 @@ export const LoginPage = () => {
 
   const location = useLocation();
 
-  const loginHandler = () => {
-    navigate("/");
-   
-  };
+ 
 
   useEffect(() => {
     (async () => {
@@ -37,11 +34,19 @@ export const LoginPage = () => {
     }));
   };
 
+  // const loginHandler = () => {
+  //   setLoginData((prev)=>({
+  //     ...prev,
+  //     email: 
+  //   }))
+   
+  // };
+
   const loginFieldHandler = (event) => {
     const { name, value } = event.target;
     setLoginData((prev) => ({ ...prev, [name]: value }));
   };
-
+console.log(loginData)
   return (
     <div className="login">
       <div className="first_login">
@@ -68,11 +73,11 @@ export const LoginPage = () => {
           required
         />
       </div>
-      <div>
-        <button className="login_button" onClick={loginHandler}>
+      {/* <div>
+        <button className="login_button" >
           SIGN IN
         </button>
-      </div>
+      </div> */}
       <div>
         <button className="login_button" onClick={testLoginHandler}>
           SIGN IN WITH TEST ACCOUNT

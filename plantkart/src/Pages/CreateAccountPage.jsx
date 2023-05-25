@@ -17,79 +17,25 @@ export const CreateAccountPage = () => {
 
   function userDataHandler(event) {
     const { name, value } = event.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
+    setUserData((prev) => ({ ...prev, [name]: value }));
   }
-  // console.log(userData);
 
-  // const signUpHandler = async(event) => {
-  //   event.preventDefault();
-  //   console.log(userData);
-  //   try{
-  //     const response = await axios.post('/api/auth/signup',userData);
-  //     console.log(response)
-  //   }
-  //    catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
-  // const signUpHandler = async(event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const response = await axios.post(`/api/auth/signup`, userData);
-  //     console.log(response)
-  //     // saving the encodedToken in the localStorage
-  //     localStorage.setItem("token", response.data.encodedToken);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const signUpHandler = async (event) => {
-  //   event.preventDefault();
-
-  //   if (!userData) {
-  //     return;
-  //   }
-
-  //   try {
-  //     let response = await fetch("/api/auth/signup", {
-  //       method: "POST",
-  //       headers: {
-  //         // "Content-Type": "application/json;charset=utf-8",
-  //       },
-  //       body: JSON.stringify(userData),
-  //     });
-
-  //     const data = await response.json();
-  //     // setToken(data?.encodedToken);
-
-  //     if (data?.encodedToken) {
-  //       localStorage.setItem("token", data?.encodedToken);
-
-  //       // navigate(location?.state?.from.pathname || "/login", { replace: true });
-  //     }
-
-  //     console.log(data);
-  //   } catch (error) {}
-  // };
-
-  const signUpHandler = () => {
-    const { firstName, lastName, email, password } = userData;
-    if (email && password && firstName && lastName !== "") {
-      (async () => {
-        signUpUser(email, password, firstName, lastName);
-      })();
-    }
+  const signUpHandler = (event) => {
+    event.preventDefault();
+    signUpUser(
+      userData.fullName,
+      userData.lastName,
+      userData.email,
+      userData.password
+    );
   };
 
+  
   if (token) {
     setTimeout(() => {
       navigate("/products");
-    });
+    }, 300);
   }
 
   return (
@@ -137,7 +83,9 @@ export const CreateAccountPage = () => {
         </button>
       </div>
       <div>
-        <button className="login_button" onClick={()=>navigate("/login")}>LOGIN IN</button>
+        <button className="login_button" onClick={() => navigate("/login")}>
+          LOGIN IN
+        </button>
       </div>
       {/* </div> */}
     </form>

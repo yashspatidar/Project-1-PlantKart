@@ -1,4 +1,4 @@
-import "../ProductListing.css"
+import './Filters.css';
 
 export const Filters = () => {
   return (
@@ -7,9 +7,11 @@ export const Filters = () => {
         <p>Filters</p>
         <a>Clear</a>
       </div>
+      <hr/>
       <div className="filter-second">
         <input type="range" />
       </div>
+      <hr/>
       <div className="filter-third">
         <p>Category</p>
         <label>
@@ -33,6 +35,7 @@ export const Filters = () => {
           Flower Plant
         </label>
       </div>
+      <hr/>
       <div className="filter-fourth">
         <p>Rating</p>
         <label>
@@ -48,6 +51,7 @@ export const Filters = () => {
           <input type="radio" />1 star and above
         </label>
       </div>
+      <hr/>
       <div className="filter-fifth">
         <p>Sort by</p>
         <label>

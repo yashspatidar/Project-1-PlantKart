@@ -3,6 +3,7 @@ import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import '../Header.css';
+import { Link } from "react-router-dom";
 
 
 
@@ -11,25 +12,24 @@ export const Header = () => {
   return (
     <div className="header">
       <div className="logoName">
-        <a href="/">
-          {/* <img src={plant} alt="Plantkart"/> */}
+        <Link to="/">
           <h1>PlantKart</h1>
-        </a>
+        </Link>
       </div>
       <div className="second_header">
         <input placeholder="search for plants" />
         <SearchRoundedIcon />
       </div>
       <div className="third_header">
-        <a href="/wishlist" className="third_header_link">
+        <Link to="/wishlist" className="third_header_link">
           <FavoriteRoundedIcon />
-        </a>
-        <a href ="/cart" className="third_header_link">
+        </Link>
+        <Link to ="/cart" className="third_header_link">
           <ShoppingCartRoundedIcon />
-        </a>
-        <a href="/login" className="third_header_link" >
+        </Link>
+        <Link to="/login" className="third_header_link" >
           <PersonRoundedIcon />
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -1,33 +1,48 @@
-import { productDemo } from "../productDemo";
+import axios from "axios";
 import "../../Pages/Cart/CartStyle.css";
+import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContextProvider";
 
 export const Cart = () => {
+  const [cartData, setCartData] = useState([]);
+  console.log(cartData, "cart item");
+  const { token } = useContext(AuthContext);
+
+  const getData = async () => {
+    try {
+      const {
+        data: { cart },
+      } = await axios.get("/api/user/cart", {
+        headers: {
+          authorization: token,
+        },
+      });
+
+      setCartData(cart);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div className="cartContainer">
-      <p className="cart-first">My Cart</p>
-      <div className="cart-card-container">
+    <div>
+      {cartData?.map((item) => (
         <div>
-          {productDemo.map((item) => (
-            <div className="cart-card">
-              <img src={item.image_link} alt="cartImage" />
-              <div className="cart-card-first">
-                <p>{item.name}</p>
-                <p className="cartPrice">{item.price}</p>
-                <p>Quantity : </p>
-                <button className="cartButtons">Remove from Cart</button>
-                <button className="cartButtons">Add to Wishlist</button>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="cartPriceCart">
-          <p>PRICE DETAILS</p>
+          <img src={item.image_link} alt="cartImage" />
           <div>
-            <p>Price({productDemo?.length} item)</p>
-            <p></p>
+            <p>{item.name}</p>
+            <p>{item.price}</p>
+            <p>Quantity : </p>
+            <button>Remove from Cart</button>
+            <button>Add to Wishlist</button>
           </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };

@@ -1,0 +1,38 @@
+.filterDiv {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    height: 100vh;
+    grid-gap: 2rem;
+    gap: 2rem;
+    position: fixed;
+    left: 0;
+    padding: 1rem 2rem;
+    /* border-right: 1px solid #4c4e51; */
+    /* position: absolute; */
+    overflow-y: auto;
+    z-index: 5;
+  }
+  
+  .filter-first {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .filter-third {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .filter-fourth {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .filter-fifth {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
