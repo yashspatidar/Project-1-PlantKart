@@ -1,20 +1,47 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
+import { AuthContext } from "./AuthContextProvider";
 export const ProductContext = createContext();
 // TODO: to create context for cart and wishlist
-export const ProductContextProvider = ({ children }) => {
-  const [productData, setProductData] = useState(null);
-  const navigate = useNavigate();
-  
 
+const initialState = {
+  products: [],
+  cartData: [],
+  wishList: [],
+};
+
+const dataReducer = (state, action) => {
+  switch (action.type) {
+    case "add_to_product": {
+      return { ...state, products: [...action.payload] };
+    }
+    case "cartItem": {
+      return { ...state, cartData: [...action.payload] };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+export const ProductContextProvider = ({ children }) => {
+  const navigate = useNavigate();
+  const { token } = useContext(AuthContext);
+
+  //reducer
+  const [dataState, dispatch] = useReducer(dataReducer, initialState);
   // get request to fetch the product from the DB
+
   const getData = async () => {
     try {
-      const res = await axios.get("/api/products");
-      setProductData(res.data)
-      
-    }catch(e){
+      const { data: products } = await axios.get("/api/products");
+      // setProductData(res.data);
+      dispatch({
+        type: "add_to_product",
+        payload: products.products,
+      });
+    } catch (e) {
       console.log(e);
     }
   };
@@ -23,10 +50,44 @@ export const ProductContextProvider = ({ children }) => {
     getData();
   }, []);
 
+  //cart handler
+  const cartHandler = async (product) => {
+    if (token) {
+      try {
+        const response = await axios.post(
+          "/api/user/cart",
+          { product },
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
 
+        // cart data get data
 
-  
+        const {
+          data: { cart },
+        } = await axios.get("/api/user/cart", {
+          headers: {
+            authorization: token,
+          },
+        });
 
+        dispatch({
+          type: "cartItem",
+          payload: cart,
+        });
+
+        const data = response.data;
+        console.log(data, "cart post");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      navigate("/login");
+    }
+  };
 
   // button handler for shop plants button on home screen to navigate it to the product listing page
   const shopPlantButtonHandler = () => {
@@ -34,7 +95,15 @@ export const ProductContextProvider = ({ children }) => {
   };
 
   return (
-    <ProductContext.Provider value={{ productData, shopPlantButtonHandler}}>
+    <ProductContext.Provider
+      value={{
+        shopPlantButtonHandler,
+        item: 3,
+        cartHandler,
+        dataState,
+        dispatch,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );

@@ -12,6 +12,9 @@ export const products = [
     price: 2499,
     rating: 5.0,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/vB3zSQxZ/Areca-palm.jpg"
   },
   {
@@ -20,6 +23,9 @@ export const products = [
     price: 179,
     rating: 4.8,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link:"https://i.postimg.cc/mD9s45RM/Broken-Heart.jpg"
   },
   {
@@ -28,6 +34,9 @@ export const products = [
     price: 190,
     rating: 4.8,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/L4qT9FrG/Fitonia-green.jpg"
   },
   {
@@ -36,6 +45,9 @@ export const products = [
     price: 1169,
     rating: 4.5,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/MpGXwqLQ/Monstera-Deliciosa.jpg"
   },
   {
@@ -44,6 +56,9 @@ export const products = [
     price: 200,
     rating: 4.7,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/D0y3GyLQ/Peperomia-Green.jpg"
   },
   {
@@ -52,6 +67,9 @@ export const products = [
     price: 250,
     rating: 4.7,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/X74kwBZ6/Golden-snake-Plant.jpg"
   },
   {
@@ -60,6 +78,9 @@ export const products = [
     price: 160,
     rating: 4.7,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/hjCcpdSZ/Jade-Plant.jpg"
   },
   {
@@ -68,6 +89,9 @@ export const products = [
     price: 500,
     rating: 5.0,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/rm5Yp6H1/snake-plant.jpg"
   },
   {
@@ -76,6 +100,9 @@ export const products = [
     price: 299,
     rating: 4.3,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/rmbFqrv0/Rubber-Plant.jpg"
   },
   {
@@ -84,6 +111,9 @@ export const products = [
     price: 349,
     rating: 4.8,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/gJ4thyYj/Red-plant.jpg"
   },
   {
@@ -92,6 +122,9 @@ export const products = [
     price: 269,
     rating: 5.0,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/KjRfgdqp/Bamboo-palm-plant.jpg"
   },
   {
@@ -100,6 +133,9 @@ export const products = [
     price: 999,
     rating: 4.9,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/xCF3tRq4/Wandering-jew.jpg"
   },
   {
@@ -108,6 +144,9 @@ export const products = [
     price: 599,
     rating: 4.8,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/6pWJsWMx/Peacock-Plant.jpg"
   },
   {
@@ -116,6 +155,9 @@ export const products = [
     price: 199,
     rating: 4.7,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/5NZYprgz/Snake-Plant-Green.jpg"
   },
   {
@@ -124,6 +166,9 @@ export const products = [
     price: 1499,
     rating: 4.0,
     categoryName: "indoor",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/ZKVZ5vB5/Ficus.jpg"
   },
   {
@@ -132,6 +177,9 @@ export const products = [
     price: 949,
     rating: 3.5,
     categoryName: "fruit",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/HxTWLz16/Kesar-mango-plant.jpg"
   },
   {
@@ -140,6 +188,9 @@ export const products = [
     price: 999,
     rating: 4.2,
     categoryName: "fruit",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/qRmrvdL7/Chiku-plant.jpg"
   },
   {
@@ -148,6 +199,9 @@ export const products = [
     price: 599,
     rating: 4.8,
     categoryName: "flower",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/qRmrvdL7/Chiku-plant.jpg"
   },
   {
@@ -156,6 +210,9 @@ export const products = [
     price: 799,
     rating: 4.7,
     categoryName: "flower",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/HnK4XJLJ/Poinsettia.jpg"
   },
   {
@@ -164,6 +221,9 @@ export const products = [
     price: 699,
     rating: 4.8,
     categoryName: "flower",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/Y0JYjJXY/Rugmini-plant-red.jpg"
   },
   {
@@ -172,6 +232,9 @@ export const products = [
     price: 1399,
     rating: 5.0,
     categoryName: "bundle",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/ht7zfyx1/The-Dekstop-bundle.png"
   },
   {
@@ -180,6 +243,9 @@ export const products = [
     price: 1299,
     rating: 4.9,
     categoryName: "bundle",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/y8Bx811s/The-indoor-plant-bundle.png"
   },
   {
@@ -188,6 +254,9 @@ export const products = [
     price: 1299,
     rating: 4.8,
     categoryName: "bundle",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/kXTzBw9G/The-low-maintainance-bundle.png"
   },
   {
@@ -196,6 +265,9 @@ export const products = [
     price: 1299,
     rating: 4.7,
     categoryName: "bundle",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/zBM3zTBc/The-sleep-better-bundle.png"
   },
   {
@@ -204,6 +276,9 @@ export const products = [
     price: 1499,
     rating: 5.0,
     categoryName: "bundle",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/xC73bsgG/The-sun-loving-succulent-bundle.png"
   },
   {
@@ -212,6 +287,9 @@ export const products = [
     price: 1199,
     rating: 5.0,
     categoryName: "pots",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/4NHFwc9N/Pack-of-4.png"
   },
   {
@@ -220,6 +298,9 @@ export const products = [
     price: 399,
     rating: 4.7,
     categoryName: "pots",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/XJ1Jxmyh/Football-ceramic.png"
   },
   {
@@ -228,6 +309,9 @@ export const products = [
     price: 899,
     rating: 5.0,
     categoryName: "pots",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/ncXXCFQD/Wooden-Planter.jpg"
   },
   {
@@ -236,6 +320,9 @@ export const products = [
     price: 1299,
     rating: 5.0,
     categoryName: "pots",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/brcqrPXQ/Self-watering.png"
   },
   {
@@ -244,6 +331,9 @@ export const products = [
     price: 699,
     rating: 5.0,
     categoryName: "pots",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/kGnhfYK0/Plastic-pots.png"
   },
   {
@@ -252,6 +342,9 @@ export const products = [
     price: 1499,
     rating: 4.0,
     categoryName: "tool kit",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/g0yfKRfL/Marigoldkit.jpg"
   },
   {
@@ -260,6 +353,9 @@ export const products = [
     price: 1499,
     rating: 5.0,
     categoryName: "tool kit",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/mrdKqRgT/spinachkit.jpg"
   },
   {
@@ -268,6 +364,9 @@ export const products = [
     price: 799,
     rating: 4.0,
     categoryName: "tool kit",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/zXtWVcvV/Thyme1.jpg"
   },
   {
@@ -276,6 +375,9 @@ export const products = [
     price: 1399,
     rating: 5.0,
     categoryName: "tool kit",
+    quantity:1,
+    is_in_cart : false,
+    is_in_wishlist :false,
     image_link: "https://i.postimg.cc/nhdJ8qd8/tomatokit.jpg"
   },
 ];

@@ -8,9 +8,10 @@ import {
   ProductContextProvider,
   ProductContext,
 } from "./Context/ProductContextProvider";
-import { CartContextProvider } from "./Context/CartContext";
+
 import { HomeContextProvider } from "./Context/HomeContextProvider";
 import { AuthContextProvider } from "./Context/AuthContextProvider";
+
 export { ProductContext };
 // Call make Server
 makeServer();
@@ -20,13 +21,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
-      <ProductContextProvider>
-        <CartContextProvider>
+        <ProductContextProvider>
           <HomeContextProvider>
             <App />
           </HomeContextProvider>
-        </CartContextProvider>
-      </ProductContextProvider>
+        </ProductContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
