@@ -40,7 +40,6 @@ const filterReducer = (state, action) => {
 export const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
-
   const [filterState, filterDispatch] = useReducer(
     filterReducer,
     filterInitialState
@@ -81,48 +80,32 @@ export const ProductContextProvider = ({ children }) => {
     getData();
   }, []);
 
-  //cart handler
-
-  // const cartHandler = async (product) => {
-  //   if (token) {
-
-  //     try {
-  //       const response = await axios.post(
-  //         "/api/user/cart",
-  //         { product },
-  //         {
-  //           headers: {
-  //             authorization: token,
-  //           },
-  //         }
-  //       );
-
-  //       // cart data get data
-
-  //       const {
-  //         data: { cart },
-  //       } = await axios.get("/api/user/cart", {
-  //         headers: {
-  //           authorization: token,
-  //         },
-  //       });
-
-  //       dispatch({
-  //         type: "cartItem",
-  //         payload: cart,
-  //       });
-
-  //       // const data = response.data;
-  //       // console.log(data, "cart post");
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   } else {
-  //     navigate("/login");
-  //   }
-  // };
-
   // button handler for shop plants button on home screen to navigate it to the product listing page
+
+  const quantityIncrease = (product) => {
+    dispatch({
+      type: "cartItem",
+      payload: dataState?.cartData.map((item) =>
+        item._id === product._id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      ),
+    });
+  };
+
+  const quantityDecrease = (product) => {
+    if (product.quantity > 1){
+      dispatch({
+        type: "cartItem",
+        payload: dataState?.cartData.map((item) =>
+          item._id === product._id ? {...item, quantity: item.quantity - 1 } : item
+        ),
+      });
+    }else{
+      return product;
+    }
+  };
+
   const shopPlantButtonHandler = () => {
     navigate("/products");
   };
@@ -138,6 +121,8 @@ export const ProductContextProvider = ({ children }) => {
         newArray,
         filterState,
         filterDispatch,
+        quantityIncrease,
+        quantityDecrease,
       }}
     >
       {children}

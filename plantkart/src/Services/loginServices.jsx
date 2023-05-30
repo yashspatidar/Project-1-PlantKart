@@ -6,3 +6,4 @@ export const loginService = (email,password) =>{
         password: password,
     })
 }
+
