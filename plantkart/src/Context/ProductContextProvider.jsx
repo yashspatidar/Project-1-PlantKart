@@ -25,14 +25,45 @@ const dataReducer = (state, action) => {
   }
 };
 
+const filterInitialState = { searchFilter: "" };
+
+const filterReducer = (state, action) => {
+  switch (action.type) {
+    case "search-bar": {
+      return { ...state, searchFilter: action.payload };
+    }
+    default: {
+      return state;
+    }
+  }
+};
 export const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
 
+  const [filterState, filterDispatch] = useReducer(
+    filterReducer,
+    filterInitialState
+  );
+
+  //console.log(filterState, "lalalala");
   //reducer
   const [dataState, dispatch] = useReducer(dataReducer, initialState);
-  // get request to fetch the product from the DB
+  // console.log(dataState, "ohohoh");
+  const appliedFilters = () => {
+    let products = [...dataState.products];
 
+    if (filterState.searchFilter.length > 0) {
+      return (products = products.filter((item) =>
+        item.name.toLowerCase().includes(filterState.searchFilter.toLowerCase())
+      ));
+    }
+    return products;
+  };
+
+  // get request to fetch the product from the DB
+  const newArray = appliedFilters();
+  // console.log(newArray, "applied filters");
   const getData = async () => {
     try {
       const { data: products } = await axios.get("/api/products");
@@ -51,43 +82,45 @@ export const ProductContextProvider = ({ children }) => {
   }, []);
 
   //cart handler
-  const cartHandler = async (product) => {
-    if (token) {
-      try {
-        const response = await axios.post(
-          "/api/user/cart",
-          { product },
-          {
-            headers: {
-              authorization: token,
-            },
-          }
-        );
 
-        // cart data get data
+  // const cartHandler = async (product) => {
+  //   if (token) {
 
-        const {
-          data: { cart },
-        } = await axios.get("/api/user/cart", {
-          headers: {
-            authorization: token,
-          },
-        });
+  //     try {
+  //       const response = await axios.post(
+  //         "/api/user/cart",
+  //         { product },
+  //         {
+  //           headers: {
+  //             authorization: token,
+  //           },
+  //         }
+  //       );
 
-        dispatch({
-          type: "cartItem",
-          payload: cart,
-        });
+  //       // cart data get data
 
-        const data = response.data;
-        console.log(data, "cart post");
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      navigate("/login");
-    }
-  };
+  //       const {
+  //         data: { cart },
+  //       } = await axios.get("/api/user/cart", {
+  //         headers: {
+  //           authorization: token,
+  //         },
+  //       });
+
+  //       dispatch({
+  //         type: "cartItem",
+  //         payload: cart,
+  //       });
+
+  //       // const data = response.data;
+  //       // console.log(data, "cart post");
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   } else {
+  //     navigate("/login");
+  //   }
+  // };
 
   // button handler for shop plants button on home screen to navigate it to the product listing page
   const shopPlantButtonHandler = () => {
@@ -99,9 +132,12 @@ export const ProductContextProvider = ({ children }) => {
       value={{
         shopPlantButtonHandler,
         item: 3,
-        cartHandler,
+
         dataState,
         dispatch,
+        newArray,
+        filterState,
+        filterDispatch,
       }}
     >
       {children}

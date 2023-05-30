@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import "../Home.css";
+import "./Home.css";
 // import { homecard } from "../backend/db/homecards";
-import { ProductContext } from "../Context/ProductContextProvider";
-import { Footer } from "../Components/Footer";
-import { HomeContext } from "../Context/HomeContextProvider";
+import { ProductContext } from "../../Context/ProductContextProvider";
+import { Footer } from "../../Components/Footer";
+import { HomeContext } from "../../Context/HomeContextProvider";
 
 export const Home = () => {
   const {shopPlantButtonHandler,} = useContext(ProductContext);

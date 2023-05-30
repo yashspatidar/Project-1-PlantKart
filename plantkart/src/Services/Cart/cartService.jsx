@@ -1,43 +1,37 @@
 import axios from "axios";
 
 
-export const addToCart = async (item, token, cart, setCart) => {
+
+export const addToCart =async(product,token,dispatch)=>{
   try {
-    const response = await axios.post("/api/user/cart", item, {
+    const response = await axios.post(
+      "/api/user/cart",
+      { product },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+
+    // cart data get data
+
+    const {
+      data: { cart },
+    } = await axios.get("/api/user/cart", {
       headers: {
-        Authorization: `Bearer ${token}`,
+        authorization: token,
       },
     });
-    // Update the cart state with the new cart data
-    setCart(response.data.cart);
-    console.log("Item added to cart:", response.data.cart);
-  } catch (error) {
-    console.error("Error adding item to cart:", error);
-  }
-};
 
-// export const addToCart = async(item,token,cart,setCart)=>{
-    
-//     try {
-//         const {
-//           data: { cart },
-//         } = await axios.post(
-//           "/api/user/cart",
-//           {
-//             item,
-//           },
-//           {
-//             headers: {
-//               authorization: token,
-//             },
-//           }
-//         );
-//         setCart(cart);
-//         console.log(cart,"item added to cart")
-       
-   
-//       } catch (e) {
-//         console.log(e,"failed to add in cart ")
-//       }
-      
-// }
+    dispatch({
+      type: "cartItem",
+      payload: cart,
+    });
+
+    // const data = response.data;
+    // console.log(data, "cart post");
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "../Login.css";
+import "./loginStyle.css";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../Context/AuthContextProvider";
+import { AuthContext } from "../../Context/AuthContextProvider";
 
 
 export const LoginPage = () => {
@@ -10,8 +10,6 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
-
- 
 
   useEffect(() => {
     (async () => {

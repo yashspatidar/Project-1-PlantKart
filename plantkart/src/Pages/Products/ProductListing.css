@@ -19,6 +19,9 @@
   max-width: 75rem;
   margin-top: 3.125rem;
 }
+.productNf{
+  font-size:30px;
+}
 .card p {
   margin-left: 10px;
 }

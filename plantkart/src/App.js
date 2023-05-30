@@ -1,12 +1,12 @@
 import "./App.css";
 
 import { Header } from "./Components/Header";
-import { Login, LoginPage } from "./Pages/LoginPage";
+import { Login, LoginPage } from "./Pages/Login/LoginPage";
 import { Routes, Route } from "react-router-dom";
-import { ProductListing } from "./Pages/ProductListing";
+
 
 import Mockman from "mockman-js";
-import { Home } from "./Pages/Home";
+import { Home } from "./Pages/Home/Home";
 
 
 
@@ -14,6 +14,7 @@ import { CreateAccountPage } from "./Pages/CreateAccountPage";
 import { Cart } from "./Pages/Cart/Cart";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
 import { Wishlist } from "./Pages/Wishlist/Wishlist";
+import { ProductListing } from "./Pages/Products/ProductListing";
 
 function App() {
   return (
