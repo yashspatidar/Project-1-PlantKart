@@ -35,3 +35,22 @@ export const addToCart =async(product,token,dispatch)=>{
     console.log(error);
   }
 }
+
+export const deletFromCart = async (product,token,dataState,dispatch)=>{
+  try{
+    const {
+      data: { cart },
+    } = await axios.delete(`/api/user/cart/${product._id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
+
+    dispatch({
+      type: "cartItem",
+      payload: cart,
+    });
+  }catch(e){
+    console.log("error from cart delete handler")
+  }
+}

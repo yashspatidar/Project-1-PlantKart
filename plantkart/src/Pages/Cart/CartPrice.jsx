@@ -38,7 +38,7 @@ export const CartPrice = ({ product }) => {
           <p>Please make cart value above Rs. 1000 To Avail the discount</p>
         )}
       </div>
-      <button className="placeOrderButton">Place Order</button>
+      <button className="placeOrderButton" >Place Order</button>
     </div>
   );
 };

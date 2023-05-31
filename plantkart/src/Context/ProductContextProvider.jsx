@@ -82,6 +82,7 @@ export const ProductContextProvider = ({ children }) => {
 
   // button handler for shop plants button on home screen to navigate it to the product listing page
 
+  // cart handlers
   const quantityIncrease = (product) => {
     dispatch({
       type: "cartItem",
@@ -105,6 +106,10 @@ export const ProductContextProvider = ({ children }) => {
       return product;
     }
   };
+
+  const removeCartHandler = async ()=>{
+
+  }
 
   const shopPlantButtonHandler = () => {
     navigate("/products");
