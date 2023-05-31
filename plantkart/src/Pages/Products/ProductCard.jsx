@@ -13,17 +13,18 @@ export const ProductCard = ({ plant }) => {
 
   const isInCart = dataState?.cartData.find((item) => item._id === plant._id);
 
-  const cartHandler = (item) => {
+  const cartHandler = (product) => {
     console.log("fqwasfasfsa");
     token
       ? isInCart
         ? navigate("/cart")
-        : addToCart(item, token, dispatch)
+        : addToCart(product, token, dispatch)
       : navigate("/login");
   };
 
-  const wishListHandler = (item) => {
-    token ? addToWishlist(item, token, dispatch) : navigate("/login");
+  const wishListHandler = (product) => {
+    token ? addToWishlist(product, token) : navigate("/login");
+    
   };
 
   return (

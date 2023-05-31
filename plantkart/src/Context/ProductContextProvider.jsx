@@ -2,6 +2,8 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "./AuthContextProvider";
+import { addToWishlist } from "../Services/Wishlist/wishlistServices";
+import { deletFromCart } from "../Services/Cart/cartService";
 export const ProductContext = createContext();
 // TODO: to create context for cart and wishlist
 
@@ -18,6 +20,9 @@ const dataReducer = (state, action) => {
     }
     case "cartItem": {
       return { ...state, cartData: [...action.payload] };
+    }
+    case "addToWishlist":{
+      return {...state,wishList:[...action.payload]}
     }
     default: {
       return state;
@@ -107,9 +112,11 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
 
-  const removeCartHandler = async ()=>{
-
-  }
+  // const addToWishlistHandler = (product) => {
+  //   console.log(product,"bfghqioaslufhuiasklfh");
+  //   addToWishlist(product,token,dataState);
+  //   deletFromCart(product,token,dataState,dispatch);
+  // }
 
   const shopPlantButtonHandler = () => {
     navigate("/products");

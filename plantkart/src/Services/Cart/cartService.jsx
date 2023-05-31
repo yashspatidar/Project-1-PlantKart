@@ -14,7 +14,6 @@ export const addToCart =async(product,token,dispatch)=>{
       }
     );
 
-    // cart data get data
 
     const {
       data: { cart },

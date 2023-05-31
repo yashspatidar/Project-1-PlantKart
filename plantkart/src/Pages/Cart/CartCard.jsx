@@ -1,26 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./CartStyle.css";
 import { ProductContext } from "../../Context/ProductContextProvider";
 import { deletFromCart } from "../../Services/Cart/cartService";
 import { AuthContext } from "../../Context/AuthContextProvider";
+import { addToWishlist} from "../../Services/Wishlist/wishlistServices";
 export const CartCard = ({ product }) => {
   const { quantityIncrease, quantityDecrease, dataState, dispatch } =
     useContext(ProductContext);
   const { token } = useContext(AuthContext);
-  // const quantityIncrease = (quantity)=>{
-  //   return quantity+1;
-  // }
-
-  // const quantityDecrease = ()=>{
-
-  // }
+ 
   const removeCartHandler = (product) => {
     deletFromCart(product,token,dataState,dispatch);
   };
 
+  const addToWishlistHandler = (product) => {
+    addToWishlist(product,token,dataState);
+    deletFromCart(product,token,dataState,dispatch);
+  }
+ 
+  
   return (
     <div className="cart-card">
-      <img src={product.image_link} alt="cartImage" />
+      <img src={product.image_link} alt="cartImage" className="cart-Image" />
       <div className="cart-card-first">
         <p>{product.name}</p>
         <p>{product.price}</p>
@@ -34,7 +35,7 @@ export const CartCard = ({ product }) => {
         <button onClick={() => removeCartHandler(product)}>
           Remove from Cart
         </button>
-        <button>Add to Wishlist</button>
+        <button onClick={()=>addToWishlistHandler(product)}>Add to Wishlist</button>
       </div>
     </div>
   );
