@@ -36,21 +36,36 @@ export const getFromWishlist = async (token, dispatch) => {
   }
 };
 
+// export const deletFromWishlist = async (product, token, dispatch) => {
+//   try {
+//     const {
+//       data: { wishlist },
+//     } = await axios.delete(`/api/user/wishlist/${product._id}`, {
+//       headers: {
+//         authorization: token,
+//       },
+//     });
+//     dispatch({
+//       type: "addToWishlist",
+//       payload: wishlist,
+//     });
+//   } catch (e) {
+//     console.log("error from cart delete handler");
+//   }
+// };
+
 export const deletFromWishlist = async (product, token, dispatch) => {
   try {
     const {
       data: { wishlist },
     } = await axios.delete(`/api/user/wishlist/${product._id}`, {
-      headers: {
-        authorization: token,
-      },
+      headers: { authorization: token },
     });
-    console.log("gettig here");
     dispatch({
       type: "addToWishlist",
       payload: wishlist,
     });
   } catch (e) {
-    console.log("error from cart delete handler");
+    console.log(e);
   }
 };
