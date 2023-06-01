@@ -89,14 +89,19 @@ export const ProductContextProvider = ({ children }) => {
 
   // cart handlers
   const quantityIncrease = (product) => {
-    dispatch({
-      type: "cartItem",
-      payload: dataState?.cartData.map((item) =>
-        item._id === product._id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      ),
-    });
+    if(product.quantity<5){
+      dispatch({
+        type: "cartItem",
+        payload: dataState?.cartData.map((item) =>
+          item._id === product._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
+      });
+    }else{
+      console.log("can't add more than 5 produtcs")
+    }
+    
   };
 
   const quantityDecrease = (product) => {
