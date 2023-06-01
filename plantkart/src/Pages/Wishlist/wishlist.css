@@ -1,3 +1,70 @@
 /* *{
     background-color: red;
 } */
+
+.wishlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.wishlist-card {
+}
+.first-w-card > img {
+  height: 250px;
+  width: 180px;
+}
+
+.first-w-card {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 1 rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  border: 1px solid black;
+  padding-right: 10px;
+}
+
+.first-w-card:hover {
+  transform: scale(1.05);
+}
+.second-w-card > p {
+  letter-spacing: 2px;
+}
+.wishlisPrice {
+  color: #149253;
+}
+.wishlisPrice::before {
+  content: "\20B9";
+  color: #149253;
+}
+
+.second-w-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.wishlistButton {
+  display: flex;
+
+  justify-content: center;
+  padding: 10px 20px 10px;
+  width: 100%;
+  background-color: #149253;
+  border-radius: 4px;
+
+  color: #fefefe;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-weight: 1000;
+  font-size: 0.8rem;
+  margin: 10px auto;
+}

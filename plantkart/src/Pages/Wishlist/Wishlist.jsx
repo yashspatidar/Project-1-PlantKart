@@ -18,7 +18,15 @@ export const Wishlist = ()=>{
             <h2>This is a wishlist</h2>
             <div className="wishlist-card">
                 {wishlist.map((product)=>(
+                    <div className="first-w-card">
+                    <img src={product.image_link} alt={"wishlist images"}/>
+                    <div className="second-w-card">
                     <p>{product.name}</p>
+                    <p className="wishlisPrice">{product.price}</p>
+                    <button className="wishlistButton">Add to Cart</button>
+                    <button className="wishlistButton">Delete</button>
+                    </div>
+                    </div>
                 ))}
             </div>
         </div>
