@@ -9,10 +9,10 @@
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
+  
 }
 
-.wishlist-card {
-}
+
 .first-w-card > img {
   height: 250px;
   width: 180px;
@@ -68,3 +68,33 @@
   font-size: 0.8rem;
   margin: 10px auto;
 }
+
+.wishlistButton:hover {
+    background-color: white;
+    color: #149253;
+    box-shadow: 0 0 5px 0 #149253;
+  }
+
+
+  @media (min-width: 1024px) {
+    
+    .wishlist-card{
+        width: 30%;
+        /* border: 1px solid black; */
+    }
+
+    .first-w-card{
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .first-w-card>img{
+        border-radius:5px ;
+        width: 200px;
+    }
+
+    .wishlistButton{
+        width: 230px;
+    }
+  }

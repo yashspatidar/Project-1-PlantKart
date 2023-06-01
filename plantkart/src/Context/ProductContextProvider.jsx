@@ -21,8 +21,8 @@ const dataReducer = (state, action) => {
     case "cartItem": {
       return { ...state, cartData: [...action.payload] };
     }
-    case "addToWishlist":{
-      return {...state,wishList:[...action.payload]}
+    case "addToWishlist": {
+      return { ...state, wishList: [...action.payload] };
     }
     default: {
       return state;
@@ -100,14 +100,16 @@ export const ProductContextProvider = ({ children }) => {
   };
 
   const quantityDecrease = (product) => {
-    if (product.quantity > 1){
+    if (product.quantity > 1) {
       dispatch({
         type: "cartItem",
         payload: dataState?.cartData.map((item) =>
-          item._id === product._id ? {...item, quantity: item.quantity - 1 } : item
+          item._id === product._id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
         ),
       });
-    }else{
+    } else {
       return product;
     }
   };
