@@ -13,7 +13,9 @@ export const ProductListing = () => {
   return (
     <div className="product-listing">
       <Filters />
+      
       <div className="productCard">
+      
         {newArray?.length === 0 ? (
           <p className="productNf">
             Product not Found 🥺 Please search for other plants

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react"
-
+import axios from "axios"
 export const HomeContext = createContext();
 
 export const HomeContextProvider = ({children})=>{
@@ -9,16 +9,13 @@ export const HomeContextProvider = ({children})=>{
         try {
           const res = await fetch("/api/categories");
           setHomeCard(await res.json());
-          //   console.log(await res.json());
-          //   setProductData(res.json());
+          
         } catch (e) {
           console.error(e);
         }
       };
     
-      useEffect(() => {
-        getData();
-      }, []);
+      
     
 
     return(

@@ -13,7 +13,12 @@ const initialState = {
   wishList: [],
 };
 
-const filterInitialState = { searchFilter: "" };
+const filterInitialState = {
+  searchFilter: "",
+  sortPrice: "",
+  sortRating: "",
+  category: [],
+};
 
 export const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -22,11 +27,44 @@ export const ProductContextProvider = ({ children }) => {
     filterReducer,
     filterInitialState
   );
-
+  console.log(filterState.category, "filrer");
   //console.log(filterState, "lalalala");
   //reducer
   const [dataState, dispatch] = useReducer(dataReducer, initialState);
   // console.log(dataState, "ohohoh");
+
+  const sortPriceHandler = (event) => {
+    filterDispatch({
+      type: "sortPrice",
+      payload: event.target.value,
+    });
+  };
+
+  const ratingHandler = (event) => {
+    filterDispatch({
+      type: "sortRating",
+      payload: event.target.value,
+    });
+  };
+
+  const categoryHandler = (event) => {
+    const isCheck = event.target.checked;
+    
+    if (isCheck) {
+      filterDispatch({
+        type: "category",
+        payload:[...filterState.category,event.target.value],
+      });
+    } else {
+      filterDispatch({
+        type: "category",
+        payload: filterState.category.filter(
+          (item) => item !== event.target.value
+        ),
+      });
+    }
+  };
+
   const appliedFilters = () => {
     let products = [...dataState.products];
 
@@ -35,6 +73,30 @@ export const ProductContextProvider = ({ children }) => {
         item.name.toLowerCase().includes(filterState.searchFilter.toLowerCase())
       ));
     }
+
+    if (filterState.sortPrice === "LowToHigh") {
+      products = products.sort((a, b) => a.price - b.price);
+    } else if (filterState.sortPrice === "HighToLow") {
+      products = products.sort((a, b) => b.price - a.price);
+    }
+
+    if (filterState.sortRating === "fourAbove") {
+      products = products.filter((item) => item.rating > 4);
+    } else if (filterState.sortRating === "threeAbove") {
+      products = products.filter((item) => item.rating > 3);
+    } else if (filterState.sortRating === "twoAbove") {
+      products = products.filter((item) => item.rating > 2);
+    } else if (filterState.sortRating === "oneAbove") {
+      products = products.filter((item) => item.rating > 1);
+    }
+
+    if (filterState.category.length > 0) {
+      products = products.filter(({ categoryName }) =>
+        filterState.category.find((item) => item === categoryName)
+      );
+    }
+    
+
     return products;
   };
 
@@ -91,11 +153,7 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
 
-  // const addToWishlistHandler = (product) => {
-  //   console.log(product,"bfghqioaslufhuiasklfh");
-  //   addToWishlist(product,token,dataState);
-  //   deletFromCart(product,token,dataState,dispatch);
-  // }
+  
 
   const shopPlantButtonHandler = () => {
     navigate("/products");
@@ -114,6 +172,9 @@ export const ProductContextProvider = ({ children }) => {
         filterDispatch,
         quantityIncrease,
         quantityDecrease,
+        sortPriceHandler,
+        ratingHandler,
+        categoryHandler,
       }}
     >
       {children}

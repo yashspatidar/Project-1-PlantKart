@@ -1,3 +1,6 @@
+
+
+
 export const dataReducer = (state, action) => {
     switch (action.type) {
       case "add_to_product": {

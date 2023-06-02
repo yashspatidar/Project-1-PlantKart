@@ -11,6 +11,13 @@
   border-left: 1px solid black;
 }
 
+/* .product-listing>h1{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
 .productCard {
   display: flex;
   flex-wrap: wrap;
@@ -18,7 +25,9 @@
   gap: 1rem;
   max-width: 75rem;
   margin-top: 3.125rem;
+  
 }
+
 .productNf{
   font-size:30px;
 }

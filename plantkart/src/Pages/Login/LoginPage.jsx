@@ -32,18 +32,12 @@ export const LoginPage = () => {
     }));
   };
 
-  // const loginHandler = () => {
-  //   setLoginData((prev)=>({
-  //     ...prev,
-  //     email: 
-  //   }))
-   
-  // };
 
   const loginFieldHandler = (event) => {
     const { name, value } = event.target;
     setLoginData((prev) => ({ ...prev, [name]: value }));
   };
+  
 console.log(loginData)
   return (
     <div className="login">

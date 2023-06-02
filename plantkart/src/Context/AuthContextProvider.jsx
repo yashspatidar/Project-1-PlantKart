@@ -49,11 +49,11 @@ export const AuthContextProvider = ({ children }) => {
           "login",
           JSON.stringify({
             token: encodedToken,
-            user: createdUser,
+            // user: createdUser,
           })
         );
-        // console.log(createdUser)
-        //   console.log(encodedToken);
+        localStorage.setItem("user", JSON.stringify({ user: createdUser }));
+          setUser(createdUser);
         setUser(createdUser);
         setToken(encodedToken);
       }

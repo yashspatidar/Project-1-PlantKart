@@ -16,22 +16,22 @@ export const homecard = [
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Indoor Plant",
+    categoryName: "indoor",
     img:"https://i.postimg.cc/SNvQkWMH/Jade-Plant.jpg",
   },
   {
     _id: uuid(),
-    categoryName: "Fruit Plant",
+    categoryName: "fruit",
     img:"https://i.postimg.cc/HxTWLz16/Kesar-mango-plant.jpg",
   },
   {
     _id: uuid(),
-    categoryName: "Pots and Planters",
+    categoryName: "flower",
     img:"https://i.postimg.cc/XJ1Jxmyh/Football-ceramic.png",
   },
   {
     _id: uuid(),
-    categoryName: "Tool Kit",
+    categoryName: "tool kit",
     img:"https://i.postimg.cc/mrdKqRgT/spinachkit.jpg",
   },
   {
