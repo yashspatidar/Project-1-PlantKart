@@ -1,9 +1,9 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "./AuthContextProvider";
-import { addToWishlist } from "../Services/Wishlist/wishlistServices";
-import { deletFromCart } from "../Services/Cart/cartService";
+
+import { filterReducer } from "../Reducers/filterReducer";
+import { dataReducer } from "../Reducers/dataReducer";
 export const ProductContext = createContext();
 // TODO: to create context for cart and wishlist
 
@@ -13,38 +13,11 @@ const initialState = {
   wishList: [],
 };
 
-const dataReducer = (state, action) => {
-  switch (action.type) {
-    case "add_to_product": {
-      return { ...state, products: [...action.payload] };
-    }
-    case "cartItem": {
-      return { ...state, cartData: [...action.payload] };
-    }
-    case "addToWishlist": {
-      return { ...state, wishList: [...action.payload] };
-    }
-    default: {
-      return state;
-    }
-  }
-};
-
 const filterInitialState = { searchFilter: "" };
 
-const filterReducer = (state, action) => {
-  switch (action.type) {
-    case "search-bar": {
-      return { ...state, searchFilter: action.payload };
-    }
-    default: {
-      return state;
-    }
-  }
-};
 export const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const { token } = useContext(AuthContext);
+
   const [filterState, filterDispatch] = useReducer(
     filterReducer,
     filterInitialState
@@ -89,7 +62,7 @@ export const ProductContextProvider = ({ children }) => {
 
   // cart handlers
   const quantityIncrease = (product) => {
-    if(product.quantity<5){
+    if (product.quantity < 5) {
       dispatch({
         type: "cartItem",
         payload: dataState?.cartData.map((item) =>
@@ -98,10 +71,9 @@ export const ProductContextProvider = ({ children }) => {
             : item
         ),
       });
-    }else{
-      console.log("can't add more than 5 produtcs")
+    } else {
+      console.log("can't add more than 5 produtcs");
     }
-    
   };
 
   const quantityDecrease = (product) => {
