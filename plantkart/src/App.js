@@ -15,6 +15,7 @@ import { Cart } from "./Pages/Cart/Cart";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
 import { Wishlist } from "./Pages/Wishlist/Wishlist";
 import { ProductListing } from "./Pages/Products/ProductListing";
+import { Product } from "./Pages/Product/Product";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductListing />} />
         <Route path="/mockman" element={<Mockman />} />
+        <Route path="/product/:productId" element={<Product/>}/>
         <Route
           path="/cart"
           element={

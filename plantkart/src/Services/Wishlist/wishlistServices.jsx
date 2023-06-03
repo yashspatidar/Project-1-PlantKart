@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const addToWishlist = async (product, token) => {
+export const addToWishlist = async (product, token,dispatch) => {
   try {
     const res = await axios.post(
       "/api/user/wishlist",
@@ -10,15 +10,7 @@ export const addToWishlist = async (product, token) => {
         headers: { authorization: token },
       }
     );
-    // const data = res.data;
-    console.log(res.data.wishlist, "wishlist post");
-  } catch (e) {
-    console.log(e);
-  }
-};
 
-export const getFromWishlist = async (token, dispatch) => {
-  try {
     const {
       data: { wishlist },
     } = await axios.get("/api/user/wishlist", {
@@ -31,10 +23,30 @@ export const getFromWishlist = async (token, dispatch) => {
       type: "addToWishlist",
       payload: wishlist,
     });
+    
   } catch (e) {
     console.log(e);
   }
 };
+
+// export const getFromWishlist = async (token, dispatch) => {
+//   try {
+//     const {
+//       data: { wishlist },
+//     } = await axios.get("/api/user/wishlist", {
+//       headers: {
+//         authorization: token,
+//       },
+//     });
+//     console.log(wishlist, "fromdaskdhs");
+//     dispatch({
+//       type: "addToWishlist",
+//       payload: wishlist,
+//     });
+//   } catch (e) {
+//     console.log(e);
+//   }
+// };
 
 // export const deletFromWishlist = async (product, token, dispatch) => {
 //   try {

@@ -4,10 +4,12 @@ import { ProductContext } from "../../Context/ProductContextProvider";
 import { deletFromCart } from "../../Services/Cart/cartService";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { addToWishlist } from "../../Services/Wishlist/wishlistServices";
+import { useNavigate } from "react-router";
 export const CartCard = ({ product }) => {
   const { quantityIncrease, quantityDecrease, dataState, dispatch } =
     useContext(ProductContext);
   const { token } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const removeCartHandler = (product) => {
     deletFromCart(product, token, dataState, dispatch);
@@ -20,7 +22,7 @@ export const CartCard = ({ product }) => {
 
   return (
     <div className="cart-card">
-      <img src={product.image_link} alt="cartImage" className="cart-Image" />
+      <img src={product.image_link} alt="cartImage" className="cart-Image" onClick={() => navigate(`/product/${product._id}`)}/>
       <div className="cart-card-first">
         <p>{product.name}</p>
         <p className="cart-card-price">{product.price}</p>

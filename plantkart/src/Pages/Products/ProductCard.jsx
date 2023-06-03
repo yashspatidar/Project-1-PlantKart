@@ -12,7 +12,9 @@ export const ProductCard = ({ plant }) => {
   const navigate = useNavigate();
 
   const isInCart = dataState?.cartData.find((item) => item._id === plant._id);
-
+  const isInWishlist = dataState?.wishList.find((item) => {
+    return item._id === plant._id;
+  });
   const cartHandler = (product) => {
     console.log("fqwasfasfsa");
     token
@@ -23,13 +25,21 @@ export const ProductCard = ({ plant }) => {
   };
 
   const wishListHandler = (product) => {
-    token ? addToWishlist(product, token) : navigate("/login");
-    
+    token
+      ? isInWishlist
+        ? navigate("/wishlist")
+        : addToWishlist(product, token,dispatch)
+      : navigate("/login");
   };
 
   return (
     <div key={plant._id} className="card">
-      <img src={plant.image_link} alt="plant" />
+      <img
+        src={plant.image_link}
+        alt="plant"
+        onClick={() => navigate(`/product/${plant._id}`)}
+      />
+
       <p>{plant.name}</p>
       <p>{plant.rating}</p>
       <p className="RupeePrice">
@@ -37,11 +47,12 @@ export const ProductCard = ({ plant }) => {
         <span className="mainPrice">{plant.price}</span>
       </p>
       <p>{plant.categoryName}</p>
+
       <button className="addtocart" onClick={() => cartHandler(plant)}>
         {isInCart ? "Go To Cart" : "Add To Cart"}
       </button>
       <button className="addtocart" onClick={() => wishListHandler(plant)}>
-        Add to Wishlist
+        {isInWishlist ? "Go To WishList" : "Add To Wishlist"}
       </button>
     </div>
   );

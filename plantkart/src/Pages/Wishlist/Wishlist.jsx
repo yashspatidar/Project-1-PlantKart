@@ -2,20 +2,22 @@ import { useContext, useEffect } from "react";
 import "./wishlist.css";
 import {
   deletFromWishlist,
-  getFromWishlist,
+  // getFromWishlist,
 } from "../../Services/Wishlist/wishlistServices";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { ProductContext } from "../../Context/ProductContextProvider";
 import { addToCart } from "../../Services/Cart/cartService";
+import { useNavigate } from "react-router";
 
 export const Wishlist = () => {
   const { token } = useContext(AuthContext);
   const { dispatch, dataState } = useContext(ProductContext);
   console.log(dataState?.wishList, "dada");
   const wishlist = dataState?.wishList;
-  useEffect(() => {
-    getFromWishlist(token, dispatch);
-  }, []);
+  const navigate = useNavigate();
+  // useEffect(() => {
+  //   getFromWishlist(token, dispatch);
+  // }, []);
 
   const cartHandler = (product) => {
     addToCart(product, token, dispatch);
@@ -32,7 +34,7 @@ export const Wishlist = () => {
       <div className="wishlist-card">
         {wishlist.map((product) => (
           <div className="first-w-card">
-            <img src={product.image_link} alt={"wishlist images"} />
+            <img src={product.image_link} alt="wishlist images" onClick={() => navigate(`/product/${product._id}`)} />
             <div className="second-w-card">
               <p>{product.name}</p>
               <p className="wishlisPrice">{product.price}</p>
