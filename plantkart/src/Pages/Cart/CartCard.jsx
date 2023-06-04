@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import "./CartStyle.css";
 import { ProductContext } from "../../Context/ProductContextProvider";
 import { deletFromCart } from "../../Services/Cart/cartService";
@@ -15,8 +15,11 @@ export const CartCard = ({ product }) => {
     deletFromCart(product, token, dataState, dispatch);
   };
 
+  const isInWishlist = dataState?.wishList.find((item)=> item._id === product._id)
+
+
   const addToWishlistHandler = (product) => {
-    addToWishlist(product, token, dataState);
+    addToWishlist(product, token, dataState, dispatch);
     deletFromCart(product, token, dataState, dispatch);
   };
 
@@ -26,7 +29,6 @@ export const CartCard = ({ product }) => {
       <div className="cart-card-first">
         <p>{product.name}</p>
         <p className="cart-card-price">{product.price}</p>
-
         <div className="quantity-card">
           <p>Quantity : </p>
           <button onClick={() => quantityIncrease(product)} className="quantityButton">+</button>
@@ -43,8 +45,9 @@ export const CartCard = ({ product }) => {
         <button
           onClick={() => addToWishlistHandler(product)}
           className="cart-buttons"
+          disabled={isInWishlist}
         >
-          Add to Wishlist
+          {isInWishlist ? "Already in wishlist" : "Add to wishlist"}
         </button>
       </div>
     </div>

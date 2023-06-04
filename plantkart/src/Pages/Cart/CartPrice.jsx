@@ -4,7 +4,7 @@ import "./CartStyle.css";
 export const CartPrice = ({ product }) => {
   const { dataState } = useContext(ProductContext);
   const cartData = dataState.cartData;
-  console.log(cartData, "cart data");
+  //console.log(cartData, "cart data");
   const priceHandler = cartData?.reduce(
     (acc, curr) => curr.price * curr.quantity + acc,
     0

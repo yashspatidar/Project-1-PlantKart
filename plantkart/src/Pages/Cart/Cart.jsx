@@ -7,7 +7,7 @@ import { CartPrice } from "./CartPrice";
 export const Cart = () => {
   const { dataState } = useContext(ProductContext);
   const cartData = dataState.cartData;
-  console.log(cartData, "cart data");
+  
 
   return (
     <div className="cart">

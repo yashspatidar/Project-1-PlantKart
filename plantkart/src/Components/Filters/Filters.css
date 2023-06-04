@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 270px;
-    height: 100vh;
-    grid-gap: 2rem;
+    height: 150vh;
+    grid-gap: 1rem;
     gap: 2rem;
     position: fixed;
     left: 0;
@@ -16,7 +16,23 @@
   
   .filter-first {
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
+    justify-content:space-between;
+    margin: 0 10px;
+    
+  }
+
+  .filter-second-child{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width: 250px;
+  }
+
+  .filter-second{
+    display: flex;
+    flex-direction:column;
+    margin:0 auto;
   }
   
   .filter-third {

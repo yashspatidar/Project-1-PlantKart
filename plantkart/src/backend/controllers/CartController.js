@@ -23,7 +23,7 @@ export const getCartItemsHandler = function (schema, request) {
     );
   }
   const userCart = schema.users.findBy({ _id: userId }).cart;
-  console.log(userCart,"cart controlller")
+ // console.log(userCart,"cart controlller")
   return new Response(200, {}, { cart: userCart });
 };
 

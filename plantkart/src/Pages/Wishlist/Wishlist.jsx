@@ -12,7 +12,7 @@ import { useNavigate } from "react-router";
 export const Wishlist = () => {
   const { token } = useContext(AuthContext);
   const { dispatch, dataState } = useContext(ProductContext);
-  console.log(dataState?.wishList, "dada");
+  //console.log(dataState?.wishList, "dada");
   const wishlist = dataState?.wishList;
   const navigate = useNavigate();
   // useEffect(() => {
@@ -20,8 +20,15 @@ export const Wishlist = () => {
   // }, []);
 
   const cartHandler = (product) => {
-    addToCart(product, token, dispatch);
-    deletFromWishlist(product, token, dispatch);
+    const isInCart = dataState?.cartData.find(
+      (item) => item._id === product._id
+    );
+    if (isInCart) {
+      console.log("Product already in the cart");
+    } else {
+      addToCart(product, token, dispatch);
+      deletFromWishlist(product, token, dispatch);
+    }
   };
 
   const deleteHandler = (product) => {
@@ -33,14 +40,19 @@ export const Wishlist = () => {
       <h1>This is a wishlist</h1>
       <div className="wishlist-card">
         {wishlist.map((product) => (
-          <div className="first-w-card">
-            <img src={product.image_link} alt="wishlist images" onClick={() => navigate(`/product/${product._id}`)} />
+          <div key={product._id} className="first-w-card">
+            <img
+              src={product.image_link}
+              alt="wishlist images"
+              onClick={() => navigate(`/product/${product._id}`)}
+            />
             <div className="second-w-card">
               <p>{product.name}</p>
               <p className="wishlisPrice">{product.price}</p>
               <button
                 className="wishlistButton"
                 onClick={() => cartHandler(product)}
+                disabled={dataState.cartDisable}
               >
                 Add to Cart
               </button>

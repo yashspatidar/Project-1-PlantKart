@@ -3,6 +3,10 @@ import axios from "axios";
 
 
 export const addToCart =async(product,token,dispatch)=>{
+  dispatch({
+    type:"disableCartButton",
+    payload:true,
+  })
   try {
     const response = await axios.post(
       "/api/user/cart",
@@ -32,6 +36,11 @@ export const addToCart =async(product,token,dispatch)=>{
     // console.log(data, "cart post");
   } catch (error) {
     console.log(error);
+  }finally{
+    dispatch({
+      type:"disableCartButton",
+      payload:false,
+    })
   }
 }
 

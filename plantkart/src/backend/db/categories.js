@@ -26,7 +26,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "flower",
+    categoryName: "pots",
     img:"https://i.postimg.cc/XJ1Jxmyh/Football-ceramic.png",
   },
   {
@@ -36,7 +36,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Flower Plant",
+    categoryName: "flower",
     img:"https://i.postimg.cc/Y0JYjJXY/Rugmini-plant-red.jpg",
   },
 ];

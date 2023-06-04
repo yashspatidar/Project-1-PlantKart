@@ -2,13 +2,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./loginStyle.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
+import { ProductContext } from "../../Context/ProductContextProvider";
 
 
 export const LoginPage = () => {
   const { token, loginUser } = useContext(AuthContext);
-  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const {loginData, setLoginData} = useContext(ProductContext);
   const navigate = useNavigate();
-
+  
   const location = useLocation();
 
   useEffect(() => {
@@ -19,9 +20,10 @@ export const LoginPage = () => {
 
 
   if (token) {
-    setTimeout(() => {
-      navigate("/cart", { replace: true });
-    }, 500);
+    setTimeout(()=>{
+      navigate("/profile", { replace: true });
+    },500)
+      
   }
   
   const testLoginHandler = () => {

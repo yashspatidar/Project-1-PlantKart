@@ -1,3 +1,11 @@
+// const filterInitialState = {
+//   searchFilter: "",
+//   sortPrice: "",
+//   sortRating: "",
+//   category: [],
+//   priceRange:"",
+// };
+
 export const filterReducer = (state, action) => {
   switch (action.type) {
     case "search-bar": {
@@ -12,6 +20,13 @@ export const filterReducer = (state, action) => {
     case "category": {
       return { ...state, category: action.payload };
       
+    }
+    case "range": {
+      return { ...state, priceRange: action.payload };
+      
+    }
+    case "clearFilter":{
+      return action.payload
     }
     default: {
       return state;

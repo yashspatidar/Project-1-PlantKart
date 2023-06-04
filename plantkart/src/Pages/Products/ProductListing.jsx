@@ -21,7 +21,7 @@ export const ProductListing = () => {
             Product not Found 🥺 Please search for other plants
           </p>
         ) : (
-          newArray?.map((plant) => <ProductCard plant={plant} />)
+          newArray?.map((plant) => <ProductCard key={plant._id} plant={plant} />)
         )}
       </div>
     </div>

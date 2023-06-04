@@ -1,0 +1,24 @@
+
+
+.profile-container{
+    display:flex;
+    flex-direction:column;
+    margin: auto 0 ;
+    border: 2px solid black;
+    gap: 20px;
+    padding: 20px;
+    justify-content:flex-start;
+    margin:  10px;
+}
+
+.profile-container-first{
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+}
+
+.profile-container-second{
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+}

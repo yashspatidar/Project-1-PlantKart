@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -11,6 +11,8 @@ const initialState = {
   products: [],
   cartData: [],
   wishList: [],
+  cartDisable:false,
+  wishlistDisable:false
 };
 
 const filterInitialState = {
@@ -18,20 +20,21 @@ const filterInitialState = {
   sortPrice: "",
   sortRating: "",
   category: [],
+  priceRange:"",
 };
 
 export const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
-
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [filterState, filterDispatch] = useReducer(
     filterReducer,
     filterInitialState
   );
-  console.log(filterState.category, "filrer");
+  // console.log(filterState.category, "filrer");
   //console.log(filterState, "lalalala");
   //reducer
   const [dataState, dispatch] = useReducer(dataReducer, initialState);
-  // console.log(dataState, "ohohoh");
+   //console.log(dataState, "ohohoh");
 
   const sortPriceHandler = (event) => {
     filterDispatch({
@@ -49,7 +52,7 @@ export const ProductContextProvider = ({ children }) => {
 
   const categoryHandler = (event) => {
     const isCheck = event.target.checked;
-    
+    //console.log(event,"eventydasdklj")
     if (isCheck) {
       filterDispatch({
         type: "category",
@@ -65,6 +68,14 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
 
+ const rangeHandler =(event) => {
+  console.log(event.target.value)
+  filterDispatch({
+    type:"range",
+    payload:event.target.value,
+  })
+ }
+
   const appliedFilters = () => {
     let products = [...dataState.products];
 
@@ -72,6 +83,10 @@ export const ProductContextProvider = ({ children }) => {
       return (products = products.filter((item) =>
         item.name.toLowerCase().includes(filterState.searchFilter.toLowerCase())
       ));
+    }
+
+    if(filterState.priceRange.length>0){
+      products = products.filter((item) => item.price> parseInt(filterState.priceRange))
     }
 
     if (filterState.sortPrice === "LowToHigh") {
@@ -101,7 +116,14 @@ export const ProductContextProvider = ({ children }) => {
   };
 
   // get request to fetch the product from the DB
-  const newArray = appliedFilters();
+  let newArray = appliedFilters();
+  const clearFilters =()=>{
+    console.log("clear filter")
+    filterDispatch({
+      type: "clearFilter",
+      payload: filterInitialState,
+    })
+  }
   // console.log(newArray, "applied filters");
   const getData = async () => {
     try {
@@ -175,6 +197,9 @@ export const ProductContextProvider = ({ children }) => {
         sortPriceHandler,
         ratingHandler,
         categoryHandler,
+        rangeHandler,
+        clearFilters,
+        loginData, setLoginData
       }}
     >
       {children}

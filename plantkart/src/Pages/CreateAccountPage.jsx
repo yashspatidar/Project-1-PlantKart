@@ -24,7 +24,7 @@ export const CreateAccountPage = () => {
   const signUpHandler = (event) => {
     event.preventDefault();
     signUpUser(
-      userData.fullName,
+      userData.firstName,
       userData.lastName,
       userData.email,
       userData.password

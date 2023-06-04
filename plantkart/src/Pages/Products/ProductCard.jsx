@@ -16,7 +16,7 @@ export const ProductCard = ({ plant }) => {
     return item._id === plant._id;
   });
   const cartHandler = (product) => {
-    console.log("fqwasfasfsa");
+    //console.log("fqwasfasfsa");
     token
       ? isInCart
         ? navigate("/cart")
@@ -48,10 +48,10 @@ export const ProductCard = ({ plant }) => {
       </p>
       <p>{plant.categoryName}</p>
 
-      <button className="addtocart" onClick={() => cartHandler(plant)}>
+      <button className="addtocart" onClick={() => cartHandler(plant)} disabled={dataState.cartDisable} >
         {isInCart ? "Go To Cart" : "Add To Cart"}
       </button>
-      <button className="addtocart" onClick={() => wishListHandler(plant)}>
+      <button className="addtocart" onClick={() => wishListHandler(plant)} disabled={dataState.wishlistDisable}>
         {isInWishlist ? "Go To WishList" : "Add To Wishlist"}
       </button>
     </div>

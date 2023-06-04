@@ -4,7 +4,7 @@ export const HomeContext = createContext();
 
 export const HomeContextProvider = ({children})=>{
     const [homeCard,setHomeCard] = useState(null);
-
+    //console.log(homeCard,"ododododo");
     const getData = async () => {
         try {
           const res = await fetch("/api/categories");
@@ -15,6 +15,9 @@ export const HomeContextProvider = ({children})=>{
         }
       };
     
+      useEffect(()=>{
+        getData();
+      },[])
       
     
 

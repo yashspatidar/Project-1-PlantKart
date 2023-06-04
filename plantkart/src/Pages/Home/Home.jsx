@@ -4,11 +4,22 @@ import "./Home.css";
 import { ProductContext } from "../../Context/ProductContextProvider";
 import { Footer } from "../../Components/Footer";
 import { HomeContext } from "../../Context/HomeContextProvider";
+import { useNavigate } from "react-router";
 
 export const Home = () => {
-  const {shopPlantButtonHandler,} = useContext(ProductContext);
+  const {shopPlantButtonHandler,filterDispatch,filterState,categoryHandler} = useContext(ProductContext);
   const {homeCard} = useContext(HomeContext)
   // console.log(homeCard)
+const navigate = useNavigate()
+  const homeCategoryHandler =(category)=>{
+    console.log(category)
+    filterDispatch({
+      type: "category",
+      payload:[...filterState.category,category],
+    });
+    navigate("/products")
+    
+  }
   return (
     <div className="home">
       <img
@@ -20,8 +31,8 @@ export const Home = () => {
    
       <div className="container">
         {homeCard?.categories.map((item)=>(
-            <div className="homecard">
-                <img src={item.img} alt="plant" className="cardImage"/>
+            <div key ={item._id}className="homecard">
+                <img src={item.img} alt="plant" className="cardImage" onClick={()=>homeCategoryHandler(item.categoryName)}/>
                 <p>{item.categoryName}</p>
             </div>
         ))}
