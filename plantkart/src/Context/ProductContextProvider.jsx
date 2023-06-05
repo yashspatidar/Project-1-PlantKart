@@ -1,9 +1,10 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { v4 as uuid } from "uuid";
 import { filterReducer } from "../Reducers/filterReducer";
 import { dataReducer } from "../Reducers/dataReducer";
+import { AddressReducer } from "../Reducers/addressReducer";
 export const ProductContext = createContext();
 // TODO: to create context for cart and wishlist
 
@@ -11,8 +12,18 @@ const initialState = {
   products: [],
   cartData: [],
   wishList: [],
-  cartDisable:false,
-  wishlistDisable:false
+  cartDisable: false,
+  wishlistDisable: false,
+  address:[{
+    id: uuid(),
+    name: "Yash",
+    street: "31 Vijay Nagar",
+    city: "Indore",
+    state: "MP",
+    country: "India",
+    zipCode: "450001",
+    mobile: "123456789",
+  }]
 };
 
 const filterInitialState = {
@@ -20,7 +31,17 @@ const filterInitialState = {
   sortPrice: "",
   sortRating: "",
   category: [],
-  priceRange:"",
+  priceRange: "",
+};
+const addressInitialState = {
+  id: uuid(),
+  name: "",
+  street: "",
+  city: "",
+  state: "",
+  country: "",
+  zipCode: "",
+  mobile: "",
 };
 
 export const ProductContextProvider = ({ children }) => {
@@ -30,11 +51,14 @@ export const ProductContextProvider = ({ children }) => {
     filterReducer,
     filterInitialState
   );
+  
+  const [addresses, setAddresses] = useState(addressInitialState);
   // console.log(filterState.category, "filrer");
   //console.log(filterState, "lalalala");
   //reducer
   const [dataState, dispatch] = useReducer(dataReducer, initialState);
-   //console.log(dataState, "ohohoh");
+  console.log(dataState.cartData,"holaholahola")
+  //console.log(dataState, "ohohoh");
 
   const sortPriceHandler = (event) => {
     filterDispatch({
@@ -56,7 +80,7 @@ export const ProductContextProvider = ({ children }) => {
     if (isCheck) {
       filterDispatch({
         type: "category",
-        payload:[...filterState.category,event.target.value],
+        payload: [...filterState.category, event.target.value],
       });
     } else {
       filterDispatch({
@@ -68,13 +92,13 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
 
- const rangeHandler =(event) => {
-  console.log(event.target.value)
-  filterDispatch({
-    type:"range",
-    payload:event.target.value,
-  })
- }
+  const rangeHandler = (event) => {
+    console.log(event.target.value);
+    filterDispatch({
+      type: "range",
+      payload: event.target.value,
+    });
+  };
 
   const appliedFilters = () => {
     let products = [...dataState.products];
@@ -85,8 +109,10 @@ export const ProductContextProvider = ({ children }) => {
       ));
     }
 
-    if(filterState.priceRange.length>0){
-      products = products.filter((item) => item.price> parseInt(filterState.priceRange))
+    if (filterState.priceRange.length > 0) {
+      products = products.filter(
+        (item) => item.price > parseInt(filterState.priceRange)
+      );
     }
 
     if (filterState.sortPrice === "LowToHigh") {
@@ -110,20 +136,19 @@ export const ProductContextProvider = ({ children }) => {
         filterState.category.find((item) => item === categoryName)
       );
     }
-    
 
     return products;
   };
 
   // get request to fetch the product from the DB
   let newArray = appliedFilters();
-  const clearFilters =()=>{
-    console.log("clear filter")
+  const clearFilters = () => {
+    console.log("clear filter");
     filterDispatch({
       type: "clearFilter",
       payload: filterInitialState,
-    })
-  }
+    });
+  };
   // console.log(newArray, "applied filters");
   const getData = async () => {
     try {
@@ -175,8 +200,6 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
 
-  
-
   const shopPlantButtonHandler = () => {
     navigate("/products");
   };
@@ -199,7 +222,9 @@ export const ProductContextProvider = ({ children }) => {
         categoryHandler,
         rangeHandler,
         clearFilters,
-        loginData, setLoginData
+        loginData,
+        setLoginData,
+        addresses, setAddresses
       }}
     >
       {children}

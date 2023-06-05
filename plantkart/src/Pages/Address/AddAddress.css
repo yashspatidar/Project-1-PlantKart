@@ -1,0 +1,36 @@
+.AddAddress-Container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    gap: 20px;
+    padding: 20px;
+    justify-content: flex-start;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    width: 300px;
+    height: 400px;
+}
+
+.AddAddress-Container-first{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.AddAddress-Container-first>input{
+    padding: 3px;
+}
+
+.AddAddress-Container-second{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+.goBackButton{
+    margin-top:40px;
+}

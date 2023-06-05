@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import "./CartStyle.css";
 import { ProductContext } from "../../Context/ProductContextProvider";
-import { deletFromCart } from "../../Services/Cart/cartService";
+import { deletFromCart, updateQuantityInCart } from "../../Services/Cart/cartService";
 import { AuthContext } from "../../Context/AuthContextProvider";
-import { addToWishlist } from "../../Services/Wishlist/wishlistServices";
+import { addToWish, addToWishlist } from "../../Services/Wishlist/wishlistServices";
 import { useNavigate } from "react-router";
 export const CartCard = ({ product }) => {
   const { quantityIncrease, quantityDecrease, dataState, dispatch } =
@@ -19,7 +19,7 @@ export const CartCard = ({ product }) => {
 
 
   const addToWishlistHandler = (product) => {
-    addToWishlist(product, token, dataState, dispatch);
+    addToWish(product, token, dataState, dispatch);
     deletFromCart(product, token, dataState, dispatch);
   };
 
@@ -31,9 +31,9 @@ export const CartCard = ({ product }) => {
         <p className="cart-card-price">{product.price}</p>
         <div className="quantity-card">
           <p>Quantity : </p>
-          <button onClick={() => quantityIncrease(product)} className="quantityButton">+</button>
-          <p>{product.quantity}</p>
-          <button onClick={() => quantityDecrease(product)} className="quantityButton">-</button>
+          <button onClick={() => updateQuantityInCart(product,token,dispatch,"increment")} className="quantityButton">+</button>
+          <p>{product.qty}</p>
+          <button onClick={() => updateQuantityInCart(product,token,dispatch,"decrement")} className="quantityButton">-</button>
         </div>
 
         <button

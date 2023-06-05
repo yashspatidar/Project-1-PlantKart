@@ -138,7 +138,7 @@ export const Filters = () => {
             value="LowToHigh"
             name="priceRadio"
             onChange={sortPriceHandler}
-            checked={filterState?.sortPrice?.length > 0}
+            // checked={filterState?.sortPrice?.length > 0}
           />
           Price - Low to High
         </label>
@@ -148,7 +148,7 @@ export const Filters = () => {
             value="HighToLow"
             name="priceRadio"
             onChange={sortPriceHandler}
-            checked={filterState?.sortPrice?.length > 0}
+            // checked={filterState?.sortPrice?.length > 0}
           />
           Price - High to Low
         </label>

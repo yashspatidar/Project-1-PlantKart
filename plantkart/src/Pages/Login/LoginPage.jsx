@@ -3,11 +3,11 @@ import "./loginStyle.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { ProductContext } from "../../Context/ProductContextProvider";
-
+import { v4 as uuid } from "uuid";
 
 export const LoginPage = () => {
   const { token, loginUser } = useContext(AuthContext);
-  const {loginData, setLoginData} = useContext(ProductContext);
+  const {loginData, setLoginData,dispatch} = useContext(ProductContext);
   const navigate = useNavigate();
   
   const location = useLocation();
@@ -18,11 +18,21 @@ export const LoginPage = () => {
     })();
   }, [loginData.email, loginData.password]);
 
+  // const initialAddress =  {
+  //   id: uuid(),
+  //   name: "Yash",
+  //   street: "31 Vijay Nagar",
+  //   city: "Indore",
+  //   state: "MP",
+  //   country: "India",
+  //   zipCode: "450001",
+  //   mobile: "123456789",
+  // };
 
   if (token) {
     setTimeout(()=>{
       navigate("/profile", { replace: true });
-    },500)
+    },200)
       
   }
   
@@ -32,6 +42,10 @@ export const LoginPage = () => {
       email: "yash@gmail.com",
       password: "yash@123",
     }));
+    // dispatch({
+    //   type:"addAddress",
+    //   payload: initialAddress,
+    // })
   };
 
 

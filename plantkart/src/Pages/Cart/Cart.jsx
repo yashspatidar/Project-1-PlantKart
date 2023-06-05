@@ -7,7 +7,7 @@ import { CartPrice } from "./CartPrice";
 export const Cart = () => {
   const { dataState } = useContext(ProductContext);
   const cartData = dataState.cartData;
-  
+  console.log(cartData,"wuivbdhjlaybiasdjklv;");
 
   return (
     <div className="cart">
@@ -18,7 +18,7 @@ export const Cart = () => {
         <div className="cart-container">
           <div className="cart-container-first">
             {cartData?.map((item) => (
-              <CartCard product={item} />
+              <CartCard product={item} key={item._id}/>
             ))}
           </div>
           <div>

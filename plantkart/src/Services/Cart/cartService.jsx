@@ -32,8 +32,7 @@ export const addToCart =async(product,token,dispatch)=>{
       payload: cart,
     });
 
-    // const data = response.data;
-    // console.log(data, "cart post");
+    
   } catch (error) {
     console.log(error);
   }finally{
@@ -61,4 +60,28 @@ export const deletFromCart = async (product,token,dataState,dispatch)=>{
   }catch(e){
     console.log("error from cart delete handler")
   }
+}
+
+export const updateQuantityInCart = async(product,token,dispatch,actionType) => {
+  try {
+    const {data:{cart}}=await axios.post(`/api/user/cart/${product._id}`,
+    {
+        action: {
+          type: actionType 
+        }
+      },
+    {
+        headers: {
+        authorization: token
+      }
+    })
+    console.log(cart,"updateQuantityInCart")
+    dispatch({type:"updateCartItem" , payload: cart})
+  }
+ 
+  catch(error){
+    console.log(error)
+  }
+  
+
 }

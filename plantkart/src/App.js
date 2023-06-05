@@ -14,6 +14,9 @@ import { Wishlist } from "./Pages/Wishlist/Wishlist";
 import { ProductListing } from "./Pages/Products/ProductListing";
 import { Product } from "./Pages/Product/Product";
 import { Profile } from "./Pages/Profile/Profile";
+import { Address } from "./Pages/Address/Address";
+import { AddAddress } from "./Pages/Address/AddAddress";
+import { Checkout } from "./Pages/CheckoutPage/Checkout";
 
 function App() {
   return (
@@ -26,6 +29,8 @@ function App() {
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path ="/address" element={<Address />} />
+        <Route path ="/addAddress" element={<AddAddress />} />
         <Route
           path="/cart"
           element={
@@ -34,6 +39,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/checkout" element={<Checkout/>}/>
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/createaccount" element={<CreateAccountPage />} />

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-
+import "./profile.css"
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { useNavigate } from "react-router";
 
@@ -21,7 +21,7 @@ export const Profile = () => {
         <p>Email : {user?.email}</p>
       </div>
       <div className="profile-container-second">
-        <button>My Address</button>
+        <button onClick={()=>navigate("/address")}>My Address</button>
         <button onClick={logoutHandler}>LogOut</button>
       </div>
     </div>
