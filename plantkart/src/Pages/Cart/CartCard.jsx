@@ -3,10 +3,10 @@ import "./CartStyle.css";
 import { ProductContext } from "../../Context/ProductContextProvider";
 import { deletFromCart, updateQuantityInCart } from "../../Services/Cart/cartService";
 import { AuthContext } from "../../Context/AuthContextProvider";
-import { addToWish, addToWishlist } from "../../Services/Wishlist/wishlistServices";
+import {  addToWishlist } from "../../Services/Wishlist/wishlistServices";
 import { useNavigate } from "react-router";
 export const CartCard = ({ product }) => {
-  const { quantityIncrease, quantityDecrease, dataState, dispatch } =
+  const {  dataState, dispatch } =
     useContext(ProductContext);
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export const CartCard = ({ product }) => {
 
 
   const addToWishlistHandler = (product) => {
-    addToWish(product, token, dataState, dispatch);
+    addToWishlist(product, token, dispatch);
     deletFromCart(product, token, dataState, dispatch);
   };
 

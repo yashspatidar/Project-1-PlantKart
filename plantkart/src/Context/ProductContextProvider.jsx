@@ -14,16 +14,18 @@ const initialState = {
   wishList: [],
   cartDisable: false,
   wishlistDisable: false,
-  address:[{
-    id: uuid(),
-    name: "Yash",
-    street: "31 Vijay Nagar",
-    city: "Indore",
-    state: "MP",
-    country: "India",
-    zipCode: "450001",
-    mobile: "123456789",
-  }]
+  address: [
+    {
+      id: uuid(),
+      name: "Yash",
+      street: "31 Vijay Nagar",
+      city: "Indore",
+      state: "MP",
+      country: "India",
+      zipCode: "450001",
+      mobile: "123456789",
+    },
+  ],
 };
 
 const filterInitialState = {
@@ -51,13 +53,13 @@ export const ProductContextProvider = ({ children }) => {
     filterReducer,
     filterInitialState
   );
-  
+
   const [addresses, setAddresses] = useState(addressInitialState);
   // console.log(filterState.category, "filrer");
   //console.log(filterState, "lalalala");
   //reducer
   const [dataState, dispatch] = useReducer(dataReducer, initialState);
-  console.log(dataState.cartData,"holaholahola")
+  console.log(dataState.cartData, "holaholahola");
   //console.log(dataState, "ohohoh");
 
   const sortPriceHandler = (event) => {
@@ -170,35 +172,35 @@ export const ProductContextProvider = ({ children }) => {
   // button handler for shop plants button on home screen to navigate it to the product listing page
 
   // cart handlers
-  const quantityIncrease = (product) => {
-    if (product.quantity < 5) {
-      dispatch({
-        type: "cartItem",
-        payload: dataState?.cartData.map((item) =>
-          item._id === product._id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        ),
-      });
-    } else {
-      console.log("can't add more than 5 produtcs");
-    }
-  };
+  // const quantityIncrease = (product) => {
+  //   if (product.quantity < 5) {
+  //     dispatch({
+  //       type: "cartItem",
+  //       payload: dataState?.cartData.map((item) =>
+  //         item._id === product._id
+  //           ? { ...item, quantity: item.quantity + 1 }
+  //           : item
+  //       ),
+  //     });
+  //   } else {
+  //     console.log("can't add more than 5 produtcs");
+  //   }
+  // };
 
-  const quantityDecrease = (product) => {
-    if (product.quantity > 1) {
-      dispatch({
-        type: "cartItem",
-        payload: dataState?.cartData.map((item) =>
-          item._id === product._id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        ),
-      });
-    } else {
-      return product;
-    }
-  };
+  // const quantityDecrease = (product) => {
+  //   if (product.quantity > 1) {
+  //     dispatch({
+  //       type: "cartItem",
+  //       payload: dataState?.cartData.map((item) =>
+  //         item._id === product._id
+  //           ? { ...item, quantity: item.quantity - 1 }
+  //           : item
+  //       ),
+  //     });
+  //   } else {
+  //     return product;
+  //   }
+  // };
 
   const shopPlantButtonHandler = () => {
     navigate("/products");
@@ -215,8 +217,8 @@ export const ProductContextProvider = ({ children }) => {
         newArray,
         filterState,
         filterDispatch,
-        quantityIncrease,
-        quantityDecrease,
+        // quantityIncrease,
+        // quantityDecrease,
         sortPriceHandler,
         ratingHandler,
         categoryHandler,
@@ -224,7 +226,8 @@ export const ProductContextProvider = ({ children }) => {
         clearFilters,
         loginData,
         setLoginData,
-        addresses, setAddresses
+        addresses,
+        setAddresses,
       }}
     >
       {children}

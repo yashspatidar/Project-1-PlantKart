@@ -1,28 +1,5 @@
 import axios from "axios";
 
-export const addToWish = async (product, token,dispatch) => {
-
-  try {
-    console.log("from cart")
-    const res = await axios.post(
-      "/api/user/wishlist",
-      { product },
-      // { product :item },
-      {
-        headers: { authorization: token },
-      }
-    );
-    
-    dispatch({
-      type: "addToWishlist",
-      payload: res.data.wishlist,
-    });
-    
-  } catch (e) {
-    console.log(e);
-  }
-}
-
 export const addToWishlist = async (product, token,dispatch) => {
   
   dispatch({
