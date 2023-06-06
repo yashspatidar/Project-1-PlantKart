@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./CartStyle.css";
 import { ProductContext } from "../../Context/ProductContextProvider";
+import {  toast } from "react-toastify";
 import { deletFromCart, updateQuantityInCart } from "../../Services/Cart/cartService";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import {  addToWishlist } from "../../Services/Wishlist/wishlistServices";
@@ -12,15 +13,16 @@ export const CartCard = ({ product }) => {
   const navigate = useNavigate();
 
   const removeCartHandler = (product) => {
-    deletFromCart(product, token, dataState, dispatch);
+    deletFromCart(product, token, dispatch,toast);
   };
 
   const isInWishlist = dataState?.wishList.find((item)=> item._id === product._id)
 
 
   const addToWishlistHandler = (product) => {
-    addToWishlist(product, token, dispatch);
-    deletFromCart(product, token, dataState, dispatch);
+    addToWishlist(product, token, dispatch,toast);
+
+    deletFromCart(product, token, dataState, dispatch,toast);
   };
 
   return (

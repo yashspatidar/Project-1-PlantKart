@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "../Login.css";
 import { useContext, useState } from "react";
-import axios from "axios";
 import { AuthContext } from "../Context/AuthContextProvider";
+import {  toast } from "react-toastify";
 
 export const CreateAccountPage = () => {
   const { signUpUser, token } = useContext(AuthContext);
@@ -35,7 +35,9 @@ export const CreateAccountPage = () => {
   if (token) {
     setTimeout(() => {
       navigate("/products");
+      
     }, 300);
+    
   }
 
   return (

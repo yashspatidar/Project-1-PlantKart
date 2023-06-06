@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Mockman from "mockman-js";
 import { Home } from "./Pages/Home/Home";
-
+import { ToastContainer } from "react-toastify";
 import { CreateAccountPage } from "./Pages/CreateAccountPage";
 import { Cart } from "./Pages/Cart/Cart";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
@@ -22,7 +22,7 @@ function App() {
   return (
     <div>
       <Header />
-
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductListing />} />
@@ -40,7 +40,7 @@ function App() {
           }
         />
         <Route path="/checkout" element={<Checkout/>}/>
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/wishlist" element={<PrivateRoute><Wishlist /></PrivateRoute>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/createaccount" element={<CreateAccountPage />} />
       </Routes>

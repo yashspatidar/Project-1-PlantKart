@@ -1,16 +1,16 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import "./loginStyle.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { ProductContext } from "../../Context/ProductContextProvider";
-import { v4 as uuid } from "uuid";
+
 
 export const LoginPage = () => {
   const { token, loginUser } = useContext(AuthContext);
-  const {loginData, setLoginData,dispatch} = useContext(ProductContext);
+  const {loginData, setLoginData} = useContext(ProductContext);
   const navigate = useNavigate();
   
-  const location = useLocation();
+ 
 
   useEffect(() => {
     (async () => {
@@ -18,23 +18,15 @@ export const LoginPage = () => {
     })();
   }, [loginData.email, loginData.password]);
 
-  // const initialAddress =  {
-  //   id: uuid(),
-  //   name: "Yash",
-  //   street: "31 Vijay Nagar",
-  //   city: "Indore",
-  //   state: "MP",
-  //   country: "India",
-  //   zipCode: "450001",
-  //   mobile: "123456789",
-  // };
+  useEffect(() => {
+    if (token) {
+      navigate("/", { replace: true });
+    }
+  }, [token, navigate]);
 
-  if (token) {
-    setTimeout(()=>{
-      navigate("/profile", { replace: true });
-    },200)
-      
-  }
+  // if (token) {
+  //     navigate("/profile", { replace: true }); 
+  // }
   
   const testLoginHandler = () => {
     setLoginData((prev) => ({

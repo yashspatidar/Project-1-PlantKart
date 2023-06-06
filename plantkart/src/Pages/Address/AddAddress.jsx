@@ -5,7 +5,7 @@ import { ProductContext } from "../../Context/ProductContextProvider";
 import { useNavigate } from "react-router";
 
 export const AddAddress = () => {
-  const { addresses, setAddresses,  dispatch } =
+  const { addresses, setAddresses,  dispatch,dataState } =
     useContext(ProductContext);
 
   console.log(addresses);
@@ -15,31 +15,76 @@ export const AddAddress = () => {
     const { name, value } = event.target;
     setAddresses({ ...addresses, [name]: value });
   };
-  const handleSaveAddress = () => {
-    if (addresses.id) {
+//   const handleSaveAddress = () => {
+//   if (addresses.id) {
+//     dispatch({
+//       type: "UPDATE_ADDRESS",
+//       payload: addresses,
+//     });
+//   } else {
+//     dispatch({
+//       type: "addAddress",
+//       payload: addresses,
+//     });
+//   }
+
+
+//   setAddresses({...addresses,
+//     id: "",
+//     name: "",
+//     street: "",
+//     city: "",
+//     state: "",
+//     country: "",
+//     zipCode: "",
+//     mobile: "",
+//   });
+//   navigate("/address");
+// };
+
+const handleSaveAddress = () => {
+  if (addresses.id) {
+    dispatch({
+      type: "UPDATE_ADDRESS",
+      payload: addresses,
+    });
+  } else {
+    // Find the index of the existing address in the state
+    const existingAddressIndex = dataState.address.findIndex(
+      (address) => address.id === addresses.id
+    );
+
+    if (existingAddressIndex !== -1) {
+      // Update the existing address
       dispatch({
         type: "UPDATE_ADDRESS",
         payload: addresses,
       });
     } else {
+      // Add the new address
       dispatch({
         type: "addAddress",
         payload: addresses,
       });
     }
-    setAddresses({
-      ...addresses,
-      id: uuid(),
-      name: "",
-      street: "",
-      city: "",
-      state: "",
-      country: "",
-      zipCode: "",
-      mobile: "",
-    });
-    navigate("/address");
-  };
+  }
+
+  // Reset the address fields
+  setAddresses({
+    id: "",
+    name: "",
+    street: "",
+    city: "",
+    state: "",
+    country: "",
+    zipCode: "",
+    mobile: "",
+  });
+
+  navigate("/address");
+};
+
+
   return (
     <div className="AddAddress-Container">
       <h3>Add New Address</h3>

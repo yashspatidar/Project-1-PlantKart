@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { ProductContext } from "../../Context/ProductContextProvider";
 import "./CartStyle.css";
+import { useNavigate, useNavigation } from "react-router";
 export const CartPrice = ({ product }) => {
   const { dataState } = useContext(ProductContext);
   const cartData = dataState.cartData;
+  const navigate = useNavigate()
   //console.log(cartData, "cart data");
   const priceHandler = cartData?.reduce(
     (acc, curr) => curr.price * curr.qty + acc,
@@ -12,6 +14,9 @@ export const CartPrice = ({ product }) => {
   const deliveryPrice = priceHandler >= 1500 ? 0 : 199;
   const discountHandler = priceHandler >= 1000 ? 200 : 0;
   const totalAmount = priceHandler - discountHandler + deliveryPrice;
+  const checkout = ()=>{
+    navigate("/checkout")
+  }
   return (
     <div className="cart-container-second">
       <h2>PRICE DETAILS</h2>
@@ -41,7 +46,7 @@ export const CartPrice = ({ product }) => {
           <p>Please make cart value above Rs. 1000 To Avail the discount</p>
         )}
       </div>
-      <button className="placeOrderButton">Place Order</button>
+      <button className="placeOrderButton" onClick={checkout}>Check Out</button>
     </div>
   );
 };

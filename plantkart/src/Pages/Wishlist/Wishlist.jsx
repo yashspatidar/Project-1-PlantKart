@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import "./wishlist.css";
+import {  toast } from "react-toastify";
 import {
   deletFromWishlist,
   // getFromWishlist,
@@ -15,30 +16,33 @@ export const Wishlist = () => {
   //console.log(dataState?.wishList, "dada");
   const wishlist = dataState?.wishList;
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   getFromWishlist(token, dispatch);
-  // }, []);
+ 
 
   const cartHandler = (product) => {
     const isInCart = dataState?.cartData.find(
       (item) => item._id === product._id
     );
     if (isInCart) {
-      console.log("Product already in the cart");
+      toast.success("Product already in cart",{ autoClose: 500 });
     } else {
-      addToCart(product, token, dispatch);
-      deletFromWishlist(product, token, dispatch);
+      addToCart(product, token, dispatch,toast);
+      deletFromWishlist(product, token, dispatch,toast);
     }
   };
 
   const deleteHandler = (product) => {
-    deletFromWishlist(product, token, dispatch);
+    deletFromWishlist(product, token, dispatch,toast);
   };
 
   return (
     <div className="wishlist-container">
-      <h1>This is a wishlist</h1>
-      <div className="wishlist-card">
+      <h1>Wishlist</h1>
+      {dataState?.wishList.length === 0 ? (
+        <div>
+        <h3>wishlist is Empty! Go to Products to add item in WishList</h3>
+        <button onClick={()=>navigate("/products")} className="addtocart">Go To Products</button>
+        </div>
+      ):(<div className="wishlist-card">
         {wishlist.map((product) => (
           <div key={product._id} className="first-w-card">
             <img
@@ -65,7 +69,9 @@ export const Wishlist = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div>)}
+      
+      
     </div>
   );
 };

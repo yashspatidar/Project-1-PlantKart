@@ -16,21 +16,25 @@
 .first-w-card > img {
   height: 250px;
   width: 180px;
+  padding: 1 rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
 .first-w-card {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 20px;
   padding: 1 rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-  border: 1px solid black;
   padding: 10px;
-  margin: 10px 5px;
+  margin: 20px 5px;
 }
 
 .first-w-card:hover {
@@ -81,6 +85,7 @@
     
     .wishlist-card{
         width: 30%;
+        
         /* border: 1px solid black; */
     }
 

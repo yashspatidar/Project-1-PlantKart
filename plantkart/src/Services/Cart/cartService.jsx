@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 
-export const addToCart =async(product,token,dispatch)=>{
+export const addToCart =async(product,token,dispatch,toast)=>{
   dispatch({
     type:"disableCartButton",
     payload:true,
@@ -18,6 +18,7 @@ export const addToCart =async(product,token,dispatch)=>{
       }
     );
 
+    toast.success("Product added to cart!",{ autoClose: 500 });
 
     const {
       data: { cart },
@@ -43,7 +44,7 @@ export const addToCart =async(product,token,dispatch)=>{
   }
 }
 
-export const deletFromCart = async (product,token,dataState,dispatch)=>{
+export const deletFromCart = async (product,token,dispatch,toast)=>{
   try{
     const {
       data: { cart },
@@ -53,6 +54,7 @@ export const deletFromCart = async (product,token,dataState,dispatch)=>{
       },
     });
 
+    toast.warn("Product removed from cart!",{ autoClose: 300 });
     dispatch({
       type: "cartItem",
       payload: cart,

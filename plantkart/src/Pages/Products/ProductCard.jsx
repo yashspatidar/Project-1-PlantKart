@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { addToCart } from "../../Services/Cart/cartService";
 import { addToWishlist } from "../../Services/Wishlist/wishlistServices";
 import "./ProductListing.css";
+import {  toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { useNavigate } from "react-router";
 import { ProductContext } from "../../Context/ProductContextProvider";
@@ -20,7 +23,7 @@ export const ProductCard = ({ plant }) => {
     token
       ? isInCart
         ? navigate("/cart")
-        : addToCart(product, token, dispatch)
+        : addToCart(product, token, dispatch,toast)
       : navigate("/login");
   };
 
@@ -28,12 +31,13 @@ export const ProductCard = ({ plant }) => {
     token
       ? isInWishlist
         ? navigate("/wishlist")
-        : addToWishlist(product, token,dispatch)
+        : addToWishlist(product, token,dispatch,toast)
       : navigate("/login");
   };
 
   return (
     <div key={plant._id} className="card">
+    
       <img
         src={plant.image_link}
         alt="plant"

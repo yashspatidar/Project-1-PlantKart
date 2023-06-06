@@ -25,7 +25,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    width: 250px;
+    width: 350px;
+    
 }
 
 .profile-container-first{
@@ -36,6 +37,6 @@
 
 .profile-container-second{
     display:flex;
-    flex-direction:column;
-    gap: 10px;
+    flex-direction:row;
+    gap: 15px;
 }

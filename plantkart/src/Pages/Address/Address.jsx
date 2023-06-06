@@ -7,6 +7,7 @@ export const Address = () => {
   const { dataState, dispatch, setAddresses } = useContext(ProductContext);
   const [isUpdate, setUpdate] = useState(false);
   console.log(isUpdate);
+  console.log(dataState.address);
   const navigate = useNavigate();
   // const addEditHandler = (item) => {
   //   navigate("/addAddress");
@@ -22,41 +23,31 @@ export const Address = () => {
     });
   };
   return (
-    <div className="address-container">
+    <div className="address-container-a">
       <h2>My Addresses</h2>
       {dataState?.address.length === 0 ? (
         <p>Please Add a new address</p>
       ) : (
         dataState?.address.map((item) => (
-          <div>
+          <div className="address-container-m">
+            
+            <div className="main-address">
             <p>{item?.name}</p>
-            <div>
-              <p>{item?.street},</p>
-              <p>{item?.city},</p>
-              <p>{item?.state},</p>
+              <p>{item?.street},{item?.city},{item?.state},{item?.zipCode},</p>
               <p>{item?.country},</p>
-              <p>{item?.zipCode},</p>
+              
               <p>{item?.mobile},</p>
             </div>
-            {/* <button
-              onClick={() => {
-                setUpdate(true);
-                setAddresses({ ...item });
-                navigate("/addAddress")
-                dispatch({
-                    type:"UPDATE_ADDRESS",
-                    payload:item
-                })
-              }}
-            >
-              Edit
-            </button> */}
-            <button onClick={() => editAddress(item)}>Edit</button>
-            <button onClick={() => removeHandler(item?.id)}>Remove</button>
+            <div className="address-button-container">
+            <button onClick={() => editAddress(item)} className="cart-buttons">Edit</button>
+            <button onClick={() => removeHandler(item?.id) } className="cart-buttons">Remove</button>
+            </div>
+            
           </div>
         ))
       )}
-      <button onClick={() => navigate("/addAddress")}>Add New Address</button>
+      <button onClick={() => navigate("/addAddress")} className="productButtons">Add New Address</button>
+      {/* <button onClick={() => navigate(-1)} className="productButtons">Go back</button> */}
     </div>
   );
 };
