@@ -32,7 +32,7 @@ export const dataReducer = (state, action) => {
       return {
         ...state,
         address: state.address.map((add) =>
-          add.id === action.payLoad.id ? action.payLoad : add
+          add.id === action.payload.id ? action.payload : add
         ),
       };
     default: {

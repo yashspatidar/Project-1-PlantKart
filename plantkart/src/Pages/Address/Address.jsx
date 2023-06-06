@@ -8,7 +8,11 @@ export const Address = () => {
   const [isUpdate, setUpdate] = useState(false);
   console.log(isUpdate);
   const navigate = useNavigate();
-  const addEditHandler = (item) => {
+  // const addEditHandler = (item) => {
+  //   navigate("/addAddress");
+  // };
+  const editAddress = (item) => {
+    setAddresses(item);
     navigate("/addAddress");
   };
   const removeHandler = (id) => {
@@ -34,7 +38,7 @@ export const Address = () => {
               <p>{item?.zipCode},</p>
               <p>{item?.mobile},</p>
             </div>
-            <button
+            {/* <button
               onClick={() => {
                 setUpdate(true);
                 setAddresses({ ...item });
@@ -46,8 +50,8 @@ export const Address = () => {
               }}
             >
               Edit
-            </button>
-            {/* <button onClick={() => addEditHandler(item)}>Edit</button> */}
+            </button> */}
+            <button onClick={() => editAddress(item)}>Edit</button>
             <button onClick={() => removeHandler(item?.id)}>Remove</button>
           </div>
         ))

@@ -16,10 +16,17 @@ export const AddAddress = () => {
     setAddresses({ ...addresses, [name]: value });
   };
   const handleSaveAddress = () => {
-    dispatch({
-      type: "addAddress",
-      payload: addresses,
-    });
+    if (addresses.id) {
+      dispatch({
+        type: "UPDATE_ADDRESS",
+        payload: addresses,
+      });
+    } else {
+      dispatch({
+        type: "addAddress",
+        payload: addresses,
+      });
+    }
     setAddresses({
       ...addresses,
       id: uuid(),
@@ -31,6 +38,7 @@ export const AddAddress = () => {
       zipCode: "",
       mobile: "",
     });
+    navigate("/address");
   };
   return (
     <div className="AddAddress-Container">
