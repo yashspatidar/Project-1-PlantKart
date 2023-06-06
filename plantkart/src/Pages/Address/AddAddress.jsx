@@ -124,7 +124,7 @@ const newAdd = {
         />
       </div>
       <div className="AddAddress-Container-second">
-        <button onClick={() => handleSaveAddress()}>Save</button>
+        <button onClick={ handleSaveAddress}>Save</button>
         <button onClick={() => navigate("/address")}>Cancel</button>
       </div>
       <button onClick={() => navigate(-1)} className="goBackButton">

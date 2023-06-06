@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { ProductContext } from "../../Context/ProductContextProvider";
 import "./product.css";
@@ -18,10 +18,10 @@ export const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulating an API call or any asynchronous operation
+   
     setTimeout(() => {
       setIsLoading(false);
-    }, 600); // Change the timeout duration as per your requirement
+    }, 600); 
   }, []);
 
   const plant = dataState?.products?.find((item) => item._id === productId);
