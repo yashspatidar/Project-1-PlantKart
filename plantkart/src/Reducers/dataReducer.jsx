@@ -6,6 +6,9 @@ export const dataReducer = (state, action) => {
     case "cartItem": {
       return { ...state, cartData: [...action.payload] };
     }
+    case "emptyCard": {
+      return { ...state, cartData:action.payload };
+    }
     
     case "updateCartItem": {
       return { ...state, cartData: [...action.payload] };

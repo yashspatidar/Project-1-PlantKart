@@ -3,7 +3,7 @@ import { ProductContext } from "../../Context/ProductContextProvider";
 import "./checkout.css";
 import { useNavigate } from "react-router";
 export const Checkout = () => {
-  const { dataState,addresses } = useContext(ProductContext);
+  const { dataState} = useContext(ProductContext);
   const  navigate = useNavigate()
   const priceHandler = dataState.cartData?.reduce(
     (acc, curr) => curr.price * curr.qty + acc,
@@ -15,6 +15,9 @@ export const Checkout = () => {
   useEffect(() => {
     dataState?.cartData.length === 0 && navigate("/products");
   }, []);
+  const orderPlacedHandler =()=>{
+    navigate("/orderplaced")
+  }
   return (
     <div className="checkout">
       
@@ -73,7 +76,7 @@ export const Checkout = () => {
               <p>Please make cart value above Rs. 1000 To Avail the discount</p>
             )}
           </div>
-          <button className="placeOrderButton">Place Order</button>
+          <button className="placeOrderButton" onClick={()=>orderPlacedHandler()}>Place Order</button>
         </div>
       </div>
       

@@ -5,7 +5,7 @@ export const Footer = () => {
       <footer>
         <div className="first">
             <h2>PlantKart</h2>
-            <p>Feel Your Home with amazing plants from PlantKart</p>
+            <p>Fill Your Home with amazing plants from PlantKart</p>
             <p>Privacy Policy</p>
             <p>Terms of Use</p>
             <p>2023 PlantKart</p>

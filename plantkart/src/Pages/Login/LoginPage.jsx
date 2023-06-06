@@ -1,16 +1,16 @@
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./loginStyle.css";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { ProductContext } from "../../Context/ProductContextProvider";
 
 
 export const LoginPage = () => {
   const { token, loginUser } = useContext(AuthContext);
-  const {loginData, setLoginData} = useContext(ProductContext);
+  const {loginData, setLoginData,dispatch} = useContext(ProductContext);
   const navigate = useNavigate();
   
- 
+  const location = useLocation();
 
   useEffect(() => {
     (async () => {
@@ -20,7 +20,7 @@ export const LoginPage = () => {
 
   useEffect(() => {
     if (token) {
-      navigate("/", { replace: true });
+      navigate("/profile", { replace: true });
     }
   }, [token, navigate]);
 

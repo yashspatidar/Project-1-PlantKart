@@ -15,56 +15,40 @@ export const AddAddress = () => {
     const { name, value } = event.target;
     setAddresses({ ...addresses, [name]: value });
   };
-//   const handleSaveAddress = () => {
-//   if (addresses.id) {
-//     dispatch({
-//       type: "UPDATE_ADDRESS",
-//       payload: addresses,
-//     });
-//   } else {
-//     dispatch({
-//       type: "addAddress",
-//       payload: addresses,
-//     });
-//   }
-
-
-//   setAddresses({...addresses,
-//     id: "",
-//     name: "",
-//     street: "",
-//     city: "",
-//     state: "",
-//     country: "",
-//     zipCode: "",
-//     mobile: "",
-//   });
-//   navigate("/address");
-// };
 
 const handleSaveAddress = () => {
+  
+const newAdd = { 
+  id:uuid(),
+  name:addresses.name,
+  street:addresses.street,
+  city:addresses.city,
+  state:addresses.state,
+  country:addresses.country,
+  zipCode:addresses.zipCode,
+  mobile:addresses.mobile,
+}
   if (addresses.id) {
     dispatch({
       type: "UPDATE_ADDRESS",
       payload: addresses,
     });
   } else {
-    // Find the index of the existing address in the state
     const existingAddressIndex = dataState.address.findIndex(
       (address) => address.id === addresses.id
     );
 
     if (existingAddressIndex !== -1) {
-      // Update the existing address
+      
       dispatch({
         type: "UPDATE_ADDRESS",
         payload: addresses,
       });
     } else {
-      // Add the new address
+      
       dispatch({
         type: "addAddress",
-        payload: addresses,
+        payload: newAdd,
       });
     }
   }

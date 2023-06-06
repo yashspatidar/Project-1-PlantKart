@@ -17,6 +17,7 @@ import { Profile } from "./Pages/Profile/Profile";
 import { Address } from "./Pages/Address/Address";
 import { AddAddress } from "./Pages/Address/AddAddress";
 import { Checkout } from "./Pages/CheckoutPage/Checkout";
+import { OrderPlaced } from "./Pages/OrderPlaced/OrderPlaced";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path ="/address" element={<Address />} />
         <Route path ="/addAddress" element={<AddAddress />} />
+        <Route path="/orderplaced" element={<OrderPlaced />} />
         <Route
           path="/cart"
           element={
