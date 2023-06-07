@@ -28,6 +28,10 @@ footer {
   margin-top: 10px;
   gap: 5px;
 }
+.navLinkTag{
+  text-decoration: none;
+  color: black;
+}
 
 @media (min-width: 768px) {
   footer {

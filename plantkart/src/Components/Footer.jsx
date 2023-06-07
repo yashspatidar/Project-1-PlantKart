@@ -12,9 +12,9 @@ export const Footer = () => {
         </div>
         <div className="second">
             <h2>Connect</h2>
-            <a>Github</a>
-            <a>LinkedIn</a>
-            <a>Twitter</a>
+            <a href="https://github.com/yashpatidar17" target="_blank" rel="noreferrer" className="navLinkTag">Github</a>
+            <a href="https://www.linkedin.com/in/yashpatidar1704/" rel="noreferrer" target="_blank" className="navLinkTag">LinkedIn</a>
+            <a href="https://twitter.com/yashonweb" target="_blank" rel="noreferrer" className="navLinkTag">Twitter</a>
         </div>
       </footer>
     </div>
