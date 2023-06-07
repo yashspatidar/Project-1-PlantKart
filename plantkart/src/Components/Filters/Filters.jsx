@@ -94,7 +94,7 @@ export const Filters = () => {
             name="ratingRadio"
             value="fourAbove"
             onChange={ratingHandler}
-            // checked={filterState?.sortRating?.length > 0}
+            checked={filterState?.sortRating === "fourAbove"}
           />
           4 star and above
         </label>
@@ -104,7 +104,7 @@ export const Filters = () => {
             name="ratingRadio"
             value="threeAbove"
             onChange={ratingHandler}
-            // checked={filterState?.sortRating?.length > 0}
+            checked={filterState?.sortRating === "threeAbove"}
           />{" "}
           3 star and above
         </label>
@@ -114,7 +114,7 @@ export const Filters = () => {
             name="ratingRadio"
             value="twoAbove"
             onChange={ratingHandler}
-            // checked={filterState?.sortRating?.length > 0}
+            checked={filterState?.sortRating === "twoAbove"}
           />
           2 star and above
         </label>
@@ -124,7 +124,7 @@ export const Filters = () => {
             name="ratingRadio"
             value="oneAbove"
             onChange={ratingHandler}
-            // checked={filterState?.sortRating?.length > 0}
+            checked={filterState?.sortRating === "oneAbove"}
           />
           1 star and above
         </label>
@@ -138,7 +138,7 @@ export const Filters = () => {
             value="LowToHigh"
             name="priceRadio"
             onChange={sortPriceHandler}
-            // checked={filterState?.sortPrice?.length > 0}
+            checked={filterState?.sortPrice === "LowToHigh"}
           />
           Price - Low to High
         </label>
@@ -148,7 +148,7 @@ export const Filters = () => {
             value="HighToLow"
             name="priceRadio"
             onChange={sortPriceHandler}
-            // checked={filterState?.sortPrice?.length > 0}
+            checked={filterState?.sortPrice === "HighToLow"}
           />
           Price - High to Low
         </label>
