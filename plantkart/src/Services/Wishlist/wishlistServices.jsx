@@ -7,7 +7,7 @@ export const addToWishlist = async (product, token,dispatch,toast) => {
     payload: true,
   })
   try {
-    console.log("from cart")
+    
     const res = await axios.post(
       "/api/user/wishlist",
       { product },

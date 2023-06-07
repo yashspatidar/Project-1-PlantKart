@@ -3,7 +3,7 @@ import "./loginStyle.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { ProductContext } from "../../Context/ProductContextProvider";
-
+import {  toast } from "react-toastify";
 
 export const LoginPage = () => {
   const { token, loginUser } = useContext(AuthContext);
@@ -34,11 +34,25 @@ export const LoginPage = () => {
       email: "yash@gmail.com",
       password: "yash@123",
     }));
-    // dispatch({
-    //   type:"addAddress",
-    //   payload: initialAddress,
-    // })
+    
   };
+
+  const loginHandler = () => {
+  if (loginData.email && loginData.password) {
+    if(loginData.email !== "yash@gmail.com" && loginData.password !== "yash@123"){
+      toast.warn("enter correct credential or signup",{ autoClose: 1000 });
+    }
+    setLoginData((prev) => ({
+      ...prev,
+      email: loginData.email,
+      password: loginData.password,
+    }));
+  } else {
+    toast.warn("login with correct data or signup",{ autoClose: 1000 });
+  }
+};
+
+  
 
 
   const loginFieldHandler = (event) => {
@@ -73,11 +87,11 @@ console.log(loginData)
           required
         />
       </div>
-      {/* <div>
-        <button className="login_button" >
+      <div>
+        <button className="login_button" onClick={loginHandler} >
           SIGN IN
         </button>
-      </div> */}
+      </div>
       <div>
         <button className="login_button" onClick={testLoginHandler}>
           SIGN IN WITH TEST ACCOUNT

@@ -5,55 +5,65 @@ import { ProductContext } from "../../Context/ProductContextProvider";
 import { useNavigate } from "react-router";
 
 export const AddAddress = () => {
-  const { addresses, setAddresses,  dispatch,dataState } =
+  const { addresses, setAddresses, dispatch, dataState } =
     useContext(ProductContext);
 
-  console.log(addresses);
+  
   const navigate = useNavigate();
 
   const formHandler = (event) => {
     const { name, value } = event.target;
     setAddresses({ ...addresses, [name]: value });
   };
+  const dummyAddressHandler = () => {
+    const newAdd = {
+      id: uuid(),
+      name: "Dummy Man",
+      street: "Dummy road",
+      city: "Dummy",
+      state: "Dummy Pradesh",
+      country: "Dummy",
+      zipCode: 123456,
+      mobile: 123456789,
+    };
+    dispatch({
+      type: "addAddress",
+      payload: newAdd,
+    });
+    navigate("/address");
+  };
+
 
 const handleSaveAddress = () => {
-  
-const newAdd = { 
-  id:uuid(),
-  name:addresses.name,
-  street:addresses.street,
-  city:addresses.city,
-  state:addresses.state,
-  country:addresses.country,
-  zipCode:addresses.zipCode,
-  mobile:addresses.mobile,
-}
+  const newAddress = {
+    id: uuid(),
+    name: addresses.name,
+    street: addresses.street,
+    city: addresses.city,
+    state: addresses.state,
+    country: addresses.country,
+    zipCode: addresses.zipCode,
+    mobile: addresses.mobile,
+  };
+
   if (addresses.id) {
+    // Editing an existing address
+    const updatedAddress = {
+      ...newAddress,
+      id: addresses.id,
+    };
     dispatch({
-      type: "UPDATE_ADDRESS",
-      payload: addresses,
+      type: "updateAddress",
+      payload: updatedAddress,
     });
   } else {
-    const existingAddressIndex = dataState.address.findIndex(
-      (address) => address.id === addresses.id
-    );
-
-    if (existingAddressIndex !== -1) {
-      
-      dispatch({
-        type: "UPDATE_ADDRESS",
-        payload: addresses,
-      });
-    } else {
-      
-      dispatch({
-        type: "addAddress",
-        payload: newAdd,
-      });
-    }
+    // Adding a new address
+    dispatch({
+      type: "addAddress",
+      payload: newAddress,
+    });
   }
 
-  // Reset the address fields
   setAddresses({
     id: "",
     name: "",
@@ -64,7 +74,6 @@ const newAdd = {
     zipCode: "",
     mobile: "",
   });
-
   navigate("/address");
 };
 
@@ -124,8 +133,9 @@ const newAdd = {
         />
       </div>
       <div className="AddAddress-Container-second">
-        <button onClick={ handleSaveAddress}>Save</button>
+        <button onClick={handleSaveAddress}>Save</button>
         <button onClick={() => navigate("/address")}>Cancel</button>
+        <button onClick={dummyAddressHandler}>Enter Dummy Address</button>
       </div>
       <button onClick={() => navigate(-1)} className="goBackButton">
         {" "}

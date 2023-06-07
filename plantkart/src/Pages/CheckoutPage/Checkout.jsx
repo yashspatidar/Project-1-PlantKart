@@ -41,7 +41,7 @@ export const Checkout = () => {
       <hr />
       <div className="checkout-order-card">
         {dataState?.cartData.map((item) => (
-          <div className="checkout-order-card-first">
+          <div key={item._id} className="checkout-order-card-first">
             <p>{item.name}</p>
             <p>{item.qty}</p>
           </div>

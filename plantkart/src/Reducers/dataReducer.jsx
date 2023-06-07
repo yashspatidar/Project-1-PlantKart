@@ -31,7 +31,7 @@ export const dataReducer = (state, action) => {
         address: state.address.filter((item) => item.id !== action.payload),
       };
     }
-    case "UPDATE_ADDRESS":
+    case "updateAddress":
       return {
         ...state,
         address: state.address.map((add) =>

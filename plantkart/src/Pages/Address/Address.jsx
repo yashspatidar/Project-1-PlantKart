@@ -6,8 +6,7 @@ import { ProductContext } from "../../Context/ProductContextProvider";
 export const Address = () => {
   const { dataState, dispatch, setAddresses } = useContext(ProductContext);
   const [isUpdate, setUpdate] = useState(false);
-  console.log(isUpdate);
-  console.log(dataState.address);
+ 
   const navigate = useNavigate();
   // const addEditHandler = (item) => {
   //   navigate("/addAddress");
@@ -29,7 +28,7 @@ export const Address = () => {
         <p>Please Add a new address</p>
       ) : (
         dataState?.address.map((item) => (
-          <div className="address-container-m">
+          <div item={item.id} className="address-container-m">
             
             <div className="main-address">
             <p>{item?.name}</p>

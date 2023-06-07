@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 export const Cart = () => {
   const { dataState } = useContext(ProductContext);
   const cartData = dataState.cartData;
-  console.log(cartData,"wuivbdhjlaybiasdjklv;");
+  
   const navigate = useNavigate()
   return (
     <div className="cart">

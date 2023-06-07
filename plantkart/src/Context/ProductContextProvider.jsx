@@ -59,7 +59,7 @@ export const ProductContextProvider = ({ children }) => {
   //console.log(filterState, "lalalala");
   //reducer
   const [dataState, dispatch] = useReducer(dataReducer, initialState);
-  console.log(dataState.cartData, "holaholahola");
+  
   //console.log(dataState, "ohohoh");
 
   const sortPriceHandler = (event) => {
@@ -169,39 +169,9 @@ export const ProductContextProvider = ({ children }) => {
     getData();
   }, []);
 
-  // button handler for shop plants button on home screen to navigate it to the product listing page
 
-  // cart handlers
-  // const quantityIncrease = (product) => {
-  //   if (product.quantity < 5) {
-  //     dispatch({
-  //       type: "cartItem",
-  //       payload: dataState?.cartData.map((item) =>
-  //         item._id === product._id
-  //           ? { ...item, quantity: item.quantity + 1 }
-  //           : item
-  //       ),
-  //     });
-  //   } else {
-  //     console.log("can't add more than 5 produtcs");
-  //   }
-  // };
 
-  // const quantityDecrease = (product) => {
-  //   if (product.quantity > 1) {
-  //     dispatch({
-  //       type: "cartItem",
-  //       payload: dataState?.cartData.map((item) =>
-  //         item._id === product._id
-  //           ? { ...item, quantity: item.quantity - 1 }
-  //           : item
-  //       ),
-  //     });
-  //   } else {
-  //     return product;
-  //   }
-  // };
-
+  
   const shopPlantButtonHandler = () => {
     navigate("/products");
   };
