@@ -29,9 +29,16 @@ function App() {
         <Route path="/products" element={<ProductListing />} />
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/product/:productId" element={<Product />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path ="/address" element={<Address />} />
-        <Route path ="/addAddress" element={<AddAddress />} />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/address" element={<Address />} />
+        <Route path="/addAddress" element={<AddAddress />} />
         <Route path="/orderplaced" element={<OrderPlaced />} />
         <Route
           path="/cart"
@@ -41,8 +48,15 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/checkout" element={<Checkout/>}/>
-        <Route path="/wishlist" element={<PrivateRoute><Wishlist /></PrivateRoute>} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/wishlist"
+          element={
+            <PrivateRoute>
+              <Wishlist />
+            </PrivateRoute>
+          }
+        />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/createaccount" element={<CreateAccountPage />} />
       </Routes>

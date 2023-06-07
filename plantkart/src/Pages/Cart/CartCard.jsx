@@ -35,7 +35,7 @@ export const CartCard = ({ product }) => {
           <p>Quantity : </p>
           <button onClick={() => updateQuantityInCart(product,token,dispatch,"increment")} className="quantityButton">+</button>
           <p>{product.qty}</p>
-          <button onClick={() => updateQuantityInCart(product,token,dispatch,"decrement")} className="quantityButton">-</button>
+          <button onClick={() => updateQuantityInCart(product,token,dispatch,"decrement")} className="quantityButton" disabled={dataState.quantityDisbable || product.qty<=1}>-</button>
         </div>
 
         <button

@@ -65,6 +65,7 @@ export const deletFromCart = async (product,token,dispatch,toast)=>{
 }
 
 export const updateQuantityInCart = async(product,token,dispatch,actionType) => {
+  dispatch({type: "disableQty",payload:true})
   try {
     const {data:{cart}}=await axios.post(`/api/user/cart/${product._id}`,
     {
@@ -83,6 +84,8 @@ export const updateQuantityInCart = async(product,token,dispatch,actionType) => 
  
   catch(error){
     console.log(error)
+  }finally{
+    dispatch({type: "disableQty",payload:false})
   }
   
 

@@ -25,6 +25,9 @@ export const dataReducer = (state, action) => {
     case "addAddress": {
       return { ...state, address: [...state.address, action.payload] };
     }
+    case "disableQty": {
+      return { ...state, quantityDisbable:action.payload };
+    }
     case "removeAddress": {
       return {
         ...state,

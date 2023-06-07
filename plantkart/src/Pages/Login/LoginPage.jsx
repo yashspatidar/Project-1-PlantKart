@@ -20,7 +20,7 @@ export const LoginPage = () => {
 
   useEffect(() => {
     if (token) {
-      navigate("/profile", { replace: true });
+      navigate("/", { replace: true });
     }
   }, [token, navigate]);
 

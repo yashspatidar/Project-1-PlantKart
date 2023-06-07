@@ -14,6 +14,7 @@ const initialState = {
   wishList: [],
   cartDisable: false,
   wishlistDisable: false,
+  quantityDisbable:false,
   address: [
     {
       id: uuid(),

@@ -41,7 +41,7 @@ export const Header = () => {
         <Link to="/cart" className="third_header_link">
           <ShoppingCartRoundedIcon />
         </Link>
-        <Link to="/login" className="third_header_link">
+        <Link to="/profile" className="third_header_link">
           <PersonRoundedIcon />
         </Link>
       </div>
