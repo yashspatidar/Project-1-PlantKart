@@ -2,13 +2,14 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import Badge from "@mui/material/Badge";
 import "../Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ProductContext } from "../Context/ProductContextProvider";
 
 export const Header = () => {
-  const { filterDispatch } = useContext(ProductContext);
+  const { filterDispatch,dataState } = useContext(ProductContext);
   const navigate = useNavigate();
 
 
@@ -36,10 +37,14 @@ export const Header = () => {
       </div>
       <div className="third_header">
         <Link to="/wishlist" className="third_header_link">
-          <FavoriteRoundedIcon />
+        <Badge badgeContent={dataState?.wishList.length} color="error">
+            <FavoriteRoundedIcon />
+          </Badge>
         </Link>
         <Link to="/cart" className="third_header_link">
-          <ShoppingCartRoundedIcon />
+        <Badge badgeContent={dataState?.cartData.length} color="error">
+            <ShoppingCartRoundedIcon />
+          </Badge>
         </Link>
         <Link to="/profile" className="third_header_link">
           <PersonRoundedIcon />
